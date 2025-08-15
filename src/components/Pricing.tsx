@@ -4,7 +4,7 @@ export default function Pricing() {
     return (
         <section
             id="pricing"
-            className="py-20 bg-gradient-to-r from-brand-dark to-[#c45e14] text-white border-y animate-fade-in-up"
+            className="py-20 bg-gradient-to-r from-brand-dark to-brand text-white border-y animate-fade-in-up"
         >
             <div className="mx-auto max-w-6xl px-4">
                 <h2 className="text-3xl font-bold text-center">Pricing</h2>

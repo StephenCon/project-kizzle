@@ -16,7 +16,7 @@ export default function Hero() {
             {/* Content */}
             <div className="relative z-10 mx-auto max-w-5xl px-4 text-center text-white">
                 <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight">
-                    Build Strength. <span className="text-[#14b3c4]">Own Your Movement.</span>
+                    Build Strength. <span className="text-brand">Own Your Movement.</span>
                 </h1>
                 <p className="mt-4 text-lg text-white/90 max-w-2xl mx-auto">
                     Personal training that scales to your life: smart programming, form-first coaching, real results.

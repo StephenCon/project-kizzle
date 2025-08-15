@@ -4,7 +4,7 @@ export default function Testimonials() {
     return (
         <section
             id="testimonials"
-            className="py-20 bg-gradient-to-r from-[#14b3c4] via-white to-[#14b3c4] animate-fade-in-up"
+            className="py-20 bg-gradient-to-r from-brand-dark via-white to-brand animate-fade-in-up"
         >
             <div className="mx-auto max-w-6xl px-4">
                 <h2 className="text-3xl font-bold text-center">Client Results</h2>
