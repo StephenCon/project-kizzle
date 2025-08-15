@@ -4,7 +4,7 @@ export default function Services() {
     return (
         <section
             id="services"
-            className="py-20 bg-gradient-to-r from-neutral-100 via-white to-brand border-t animate-fade-in-up"
+            className="py-20 border-t animate-fade-in-up"
         >
             <div className="mx-auto max-w-6xl px-4">
                 <h2 className="text-3xl font-bold text-center">Services</h2>
@@ -12,11 +12,11 @@ export default function Services() {
                     {SERVICES.map((s, i) => (
                         <div
                             key={s.title}
-                            className="rounded-2xl border bg-white p-6 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-transform animate-fade-in-up"
+                            className="rounded-2xl border p-6 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-transform animate-fade-in-up"
                             style={{ animationDelay: `${i * 0.1}s` }}
                         >
-                            <h3 className="font-semibold text-lg text-brand">{s.title}</h3>
-                            <p className="mt-2 text-neutral-900/70">{s.desc}</p>
+                            <h3 className="font-semibold text-lg">{s.title}</h3>
+                            <p className="mt-2">{s.desc}</p>
                         </div>
                     ))}
                 </div>

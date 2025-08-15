@@ -38,14 +38,14 @@ export default function Header() {
     return (
         <header
             className={[
-                "sticky top-0 z-40 bg-gradient-to-r from-brand-dark to-brand text-white",
+                "sticky top-0 z-40 bg-white bg-opacity-90 backdrop-blur",
                 elevated ? "shadow-lg" : "shadow-none",
             ].join(" ")}
         >
             {/* Skip link for accessibility */}
             <a
                 href="#main"
-                className="sr-only focus:not-sr-only focus:absolute focus:inset-x-0 focus:top-2 focus:mx-auto focus:w-max focus:rounded-lg focus:bg-brand focus:px-3 focus:py-2 focus:text-white"
+                className="sr-only focus:not-sr-only focus:absolute focus:inset-x-0 focus:top-2 focus:mx-auto focus:w-max focus:rounded-lg focus:bg-black focus:px-3 focus:py-2 focus:text-white"
             >
                 Skip to content
             </a>
@@ -54,7 +54,7 @@ export default function Header() {
                 {/* Brand */}
                 <a
                     href="/"
-                    className="inline-flex items-center gap-2 font-extrabold tracking-tight text-xl"
+                    className="inline-flex items-center gap-2 font-extrabold tracking-tight text-xl text-black"
                     aria-label="Kyle PT Home"
                 >
                     <span className="select-none">Kyle PT</span>
@@ -66,14 +66,14 @@ export default function Header() {
                         <a
                             key={l.href}
                             href={l.href}
-                            className="text-white/90 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 rounded"
+                            className="text-black/90 hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/60 rounded"
                         >
                             {l.label}
                         </a>
                     ))}
                     <a
                         href="#contact"
-                        className="ml-2 inline-flex items-center rounded-xl border border-white bg-white px-4 py-2 text-sm font-semibold text-brand hover:bg-brand-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 transition"
+                        className="ml-2 inline-flex items-center rounded-xl border border-black bg-black px-4 py-2 text-sm font-semibold text-white hover:bg-gray-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/60 transition"
                     >
                         Book a Free Consult
                     </a>
@@ -82,7 +82,7 @@ export default function Header() {
                 {/* Mobile toggle */}
                 <button
                     type="button"
-                    className="md:hidden inline-flex items-center justify-center rounded-lg border border-white/30 text-white px-3 py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
+                    className="md:hidden inline-flex items-center justify-center rounded-lg border border-black/30 text-black px-3 py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/60"
                     onClick={() => setMobileOpen((v) => !v)}
                     aria-label="Toggle navigation"
                     aria-expanded={mobileOpen}
@@ -109,7 +109,7 @@ export default function Header() {
             <div
                 id="mobile-menu"
                 className={[
-                    "md:hidden overflow-hidden border-t border-white/20 bg-gradient-to-r from-brand-dark to-brand will-change-[max-height,opacity]",
+                    "md:hidden overflow-hidden border-t border-black/20 bg-white bg-opacity-95 backdrop-blur will-change-[max-height,opacity]",
                     mobileOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0",
                     "transition-all duration-300 ease-out",
                 ].join(" ")}
@@ -122,8 +122,8 @@ export default function Header() {
                             onClick={() => setMobileOpen(false)}
                             className={[
                                 "rounded-lg px-2 py-2",
-                                "text-white/90 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60",
-                                l.href === "#contact" ? "font-semibold text-white" : "",
+                                "text-black/90 hover:bg-black/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/60",
+                                l.href === "#contact" ? "font-semibold text-black" : "",
                             ].join(" ")}
                         >
                             {l.label}
@@ -132,7 +132,7 @@ export default function Header() {
                     <a
                         href="#contact"
                         onClick={() => setMobileOpen(false)}
-                        className="mt-1 inline-flex items-center justify-center rounded-xl bg-white px-4 py-2 text-sm font-semibold text-brand hover:bg-brand-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 transition"
+                        className="mt-1 inline-flex items-center justify-center rounded-xl bg-black px-4 py-2 text-sm font-semibold text-white hover:bg-gray-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/60 transition"
                     >
                         Book a Free Consult
                     </a>

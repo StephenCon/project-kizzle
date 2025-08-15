@@ -2,7 +2,7 @@ export default function ContactForm() {
     return (
         <section
             id="contact"
-            className="py-20 bg-gradient-to-r from-neutral-100 via-white to-neutral-100 animate-fade-in-up"
+            className="py-20 animate-fade-in-up"
         >
             <div className="mx-auto max-w-6xl px-4">
                 <h2 className="text-3xl font-bold text-center">Book a Free Consultation</h2>
