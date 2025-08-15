@@ -38,8 +38,8 @@ export default function Header() {
     return (
         <header
             className={[
-                "sticky top-0 z-40 border-b bg-white/70 backdrop-blur supports-[backdrop-filter]:bg-white/60",
-                elevated ? "shadow-sm" : "shadow-none",
+                "sticky top-0 z-40 bg-gradient-to-r from-indigo-600 to-purple-600 text-white",
+                elevated ? "shadow-lg" : "shadow-none",
             ].join(" ")}
         >
             {/* Skip link for accessibility */}
@@ -58,7 +58,7 @@ export default function Header() {
                     aria-label="KylePT home"
                 >
                     <span className="select-none">Kyle</span>
-                    <strong className="text-indigo-600 select-none">PT</strong>
+                    <strong className="text-yellow-300 select-none">PT</strong>
                 </a>
 
                 {/* Desktop nav */}
@@ -67,14 +67,14 @@ export default function Header() {
                         <a
                             key={l.href}
                             href={l.href}
-                            className="text-slate-700 hover:text-indigo-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 rounded"
+                            className="text-white/90 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 rounded"
                         >
                             {l.label}
                         </a>
                     ))}
                     <a
                         href="#contact"
-                        className="ml-2 inline-flex items-center rounded-xl border border-indigo-600 px-4 py-2 text-sm font-semibold text-white bg-indigo-600 hover:bg-indigo-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 transition"
+                        className="ml-2 inline-flex items-center rounded-xl border border-white bg-white px-4 py-2 text-sm font-semibold text-indigo-700 hover:bg-indigo-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 transition"
                     >
                         Book a Free Consult
                     </a>
@@ -83,7 +83,7 @@ export default function Header() {
                 {/* Mobile toggle */}
                 <button
                     type="button"
-                    className="md:hidden inline-flex items-center justify-center rounded-lg border px-3 py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+                    className="md:hidden inline-flex items-center justify-center rounded-lg border border-white/30 text-white px-3 py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
                     onClick={() => setMobileOpen((v) => !v)}
                     aria-label="Toggle navigation"
                     aria-expanded={mobileOpen}
@@ -110,7 +110,7 @@ export default function Header() {
             <div
                 id="mobile-menu"
                 className={[
-                    "md:hidden overflow-hidden border-t bg-white will-change-[max-height,opacity]",
+                    "md:hidden overflow-hidden border-t border-white/20 bg-gradient-to-r from-indigo-700 to-purple-700 will-change-[max-height,opacity]",
                     mobileOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0",
                     "transition-all duration-300 ease-out",
                 ].join(" ")}
@@ -123,8 +123,8 @@ export default function Header() {
                             onClick={() => setMobileOpen(false)}
                             className={[
                                 "rounded-lg px-2 py-2",
-                                "text-slate-800 hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500",
-                                l.href === "#contact" ? "font-semibold text-indigo-700" : "",
+                                "text-white/90 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60",
+                                l.href === "#contact" ? "font-semibold text-white" : "",
                             ].join(" ")}
                         >
                             {l.label}
@@ -133,7 +133,7 @@ export default function Header() {
                     <a
                         href="#contact"
                         onClick={() => setMobileOpen(false)}
-                        className="mt-1 inline-flex items-center justify-center rounded-xl border border-indigo-600 px-4 py-2 text-sm font-semibold text-white bg-indigo-600 hover:bg-indigo-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 transition"
+                        className="mt-1 inline-flex items-center justify-center rounded-xl bg-white px-4 py-2 text-sm font-semibold text-indigo-700 hover:bg-indigo-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 transition"
                     >
                         Book a Free Consult
                     </a>

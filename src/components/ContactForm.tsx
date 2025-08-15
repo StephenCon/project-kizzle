@@ -1,21 +1,35 @@
 export default function ContactForm() {
     return (
-        <section id="contact" className="py-16">
+        <section
+            id="contact"
+            className="py-20 bg-gradient-to-r from-indigo-50 via-white to-indigo-50 animate-fade-in-up"
+        >
             <div className="mx-auto max-w-6xl px-4">
-                <h2 className="text-3xl font-bold">Book a Free Consultation</h2>
+                <h2 className="text-3xl font-bold text-center">Book a Free Consultation</h2>
                 <form
-                    className="mt-8 grid gap-4 max-w-xl"
+                    className="mt-10 grid gap-4 max-w-xl mx-auto"
                     onSubmit={(e) => {
                         e.preventDefault();
                         alert("Thanks! I’ll be in touch shortly.");
                     }}
                 >
-                    <input className="border rounded-xl px-4 py-3" placeholder="Your name" />
-                    <input className="border rounded-xl px-4 py-3" placeholder="Email address" type="email" />
-                    <textarea className="border rounded-xl px-4 py-3" placeholder="Your goals" rows={4} />
+                    <input
+                        className="border-2 border-indigo-200 rounded-xl px-4 py-3 focus:border-indigo-500 transition"
+                        placeholder="Your name"
+                    />
+                    <input
+                        className="border-2 border-indigo-200 rounded-xl px-4 py-3 focus:border-indigo-500 transition"
+                        placeholder="Email address"
+                        type="email"
+                    />
+                    <textarea
+                        className="border-2 border-indigo-200 rounded-xl px-4 py-3 focus:border-indigo-500 transition"
+                        placeholder="Your goals"
+                        rows={4}
+                    />
                     <button
                         type="submit"
-                        className="inline-flex items-center rounded-xl border border-indigo-600 px-5 py-3 font-semibold text-white bg-indigo-600 hover:bg-indigo-700 transition"
+                        className="inline-flex items-center justify-center rounded-xl bg-indigo-600 px-5 py-3 font-semibold text-white hover:bg-indigo-700 hover:-translate-y-0.5 transition-transform"
                     >
                         Send
                     </button>
