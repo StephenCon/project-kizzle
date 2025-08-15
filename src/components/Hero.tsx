@@ -7,7 +7,7 @@ export default function Hero() {
     ];
 
     return (
-        <section className="relative overflow-hidden">
+        <section className="relative overflow-hidden animate-fade-in-up">
             {/* Soft background glow */}
             <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
                 <div className="absolute -top-24 -left-24 h-72 w-72 rounded-full bg-indigo-500/20 blur-3xl" />

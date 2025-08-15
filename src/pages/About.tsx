@@ -1,9 +1,11 @@
 
 export default function About() {
   return (
-    <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">About</h1>
-      <p>Learn more about us on this page.</p>
+    <div className="min-h-screen bg-gradient-to-b from-indigo-50 via-white to-sky-50 p-8 flex flex-col items-center text-center animate-fade-in-up">
+      <h1 className="text-4xl font-extrabold mb-6 text-indigo-700">About</h1>
+      <p className="text-lg text-slate-700 max-w-2xl">
+        Learn more about us on this page.
+      </p>
     </div>
   );
 }
