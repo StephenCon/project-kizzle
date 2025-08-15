@@ -13,10 +13,18 @@ export default function App() {
           </a>
 
           <nav className="hidden md:flex items-center gap-6">
-            <a href="#services" className="hover:text-indigo-600">Services</a>
-            <a href="#testimonials" className="hover:text-indigo-600">Results</a>
-            <a href="#pricing" className="hover:text-indigo-600">Pricing</a>
-            <a href="#contact" className="hover:text-indigo-600">Contact</a>
+            <a href="#services" className="hover:text-indigo-600">
+              Services
+            </a>
+            <a href="#testimonials" className="hover:text-indigo-600">
+              Results
+            </a>
+            <a href="#pricing" className="hover:text-indigo-600">
+              Pricing
+            </a>
+            <a href="#contact" className="hover:text-indigo-600">
+              Contact
+            </a>
             <a
               href="#contact"
               className="ml-2 inline-flex items-center rounded-xl border border-indigo-600 px-4 py-2 text-sm font-semibold text-white bg-indigo-600 hover:bg-indigo-700 transition"
@@ -38,10 +46,22 @@ export default function App() {
         {mobileOpen && (
           <div className="md:hidden border-t bg-white">
             <div className="mx-auto max-w-6xl px-4 py-3 grid gap-3">
-              <a onClick={() => setMobileOpen(false)} href="#services">Services</a>
-              <a onClick={() => setMobileOpen(false)} href="#testimonials">Results</a>
-              <a onClick={() => setMobileOpen(false)} href="#pricing">Pricing</a>
-              <a onClick={() => setMobileOpen(false)} href="#contact" className="font-semibold text-indigo-600">Contact</a>
+              <a onClick={() => setMobileOpen(false)} href="#services">
+                Services
+              </a>
+              <a onClick={() => setMobileOpen(false)} href="#testimonials">
+                Results
+              </a>
+              <a onClick={() => setMobileOpen(false)} href="#pricing">
+                Pricing
+              </a>
+              <a
+                onClick={() => setMobileOpen(false)}
+                href="#contact"
+                className="font-semibold text-indigo-600"
+              >
+                Contact
+              </a>
             </div>
           </div>
         )}
@@ -52,10 +72,12 @@ export default function App() {
         <div className="mx-auto max-w-6xl px-4 py-20 grid lg:grid-cols-2 gap-12 items-center">
           <div>
             <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight">
-              Get Strong. Move Better. <span className="text-indigo-600">Feel Amazing.</span>
+              Get Strong. Move Better.{" "}
+              <span className="text-indigo-600">Feel Amazing.</span>
             </h1>
             <p className="mt-4 text-lg text-slate-600">
-              1:1 coaching, custom programming, and nutrition guidance tailored to your goals.
+              1:1 coaching, custom programming, and nutrition guidance tailored
+              to your goals.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a
@@ -91,11 +113,23 @@ export default function App() {
           <h2 className="text-3xl font-bold">Services</h2>
           <div className="mt-8 grid gap-6 md:grid-cols-3">
             {[
-              { title: "1:1 Personal Training", desc: "Hands-on coaching to master technique and accelerate results." },
-              { title: "Custom Programming", desc: "Tailored plans for fat loss, muscle gain, or performance." },
-              { title: "Nutrition Coaching", desc: "Practical guidance to fuel training and improve body composition." },
+              {
+                title: "1:1 Personal Training",
+                desc: "Hands-on coaching to master technique and accelerate results.",
+              },
+              {
+                title: "Custom Programming",
+                desc: "Tailored plans for fat loss, muscle gain, or performance.",
+              },
+              {
+                title: "Nutrition Coaching",
+                desc: "Practical guidance to fuel training and improve body composition.",
+              },
             ].map((s) => (
-              <div key={s.title} className="rounded-2xl border bg-white p-6 shadow-sm">
+              <div
+                key={s.title}
+                className="rounded-2xl border bg-white p-6 shadow-sm"
+              >
                 <h3 className="font-semibold text-lg">{s.title}</h3>
                 <p className="mt-2 text-slate-600">{s.desc}</p>
               </div>
@@ -109,10 +143,19 @@ export default function App() {
         <div className="mx-auto max-w-6xl px-4">
           <h2 className="text-3xl font-bold">Client Results</h2>
           <div className="mt-8 grid gap-6 md:grid-cols-3">
-            {["“Dropped 8kg in 12 weeks.”", "“Stronger at 40 than at 20.”", "“No more back pain, finally.”"].map((t, i) => (
-              <figure key={i} className="rounded-2xl border p-6 bg-white shadow-sm">
+            {[
+              "“Dropped 8kg in 12 weeks.”",
+              "“Stronger at 40 than at 20.”",
+              "“No more back pain, finally.”",
+            ].map((t, i) => (
+              <figure
+                key={i}
+                className="rounded-2xl border p-6 bg-white shadow-sm"
+              >
                 <blockquote className="text-slate-800">{t}</blockquote>
-                <figcaption className="mt-3 text-sm text-slate-500">— Happy client</figcaption>
+                <figcaption className="mt-3 text-sm text-slate-500">
+                  — Happy client
+                </figcaption>
               </figure>
             ))}
           </div>
@@ -125,15 +168,36 @@ export default function App() {
           <h2 className="text-3xl font-bold">Pricing</h2>
           <div className="mt-8 grid gap-6 md:grid-cols-3">
             {[
-              { name: "Single Session", price: "£50", features: ["60 minutes", "Technique focus", "Form feedback"] },
-              { name: "Monthly Coaching", price: "£180", features: ["Weekly sessions", "Program + check-ins", "Nutrition basics"] },
-              { name: "Online Coaching", price: "£120", features: ["Custom plan", "Form checks", "Messaging support"] },
+              {
+                name: "Single Session",
+                price: "£50",
+                features: ["60 minutes", "Technique focus", "Form feedback"],
+              },
+              {
+                name: "Monthly Coaching",
+                price: "£180",
+                features: [
+                  "Weekly sessions",
+                  "Program + check-ins",
+                  "Nutrition basics",
+                ],
+              },
+              {
+                name: "Online Coaching",
+                price: "£120",
+                features: ["Custom plan", "Form checks", "Messaging support"],
+              },
             ].map((p) => (
-              <div key={p.name} className="rounded-2xl border bg-white p-6 shadow-sm flex flex-col">
+              <div
+                key={p.name}
+                className="rounded-2xl border bg-white p-6 shadow-sm flex flex-col"
+              >
                 <h3 className="font-semibold text-lg">{p.name}</h3>
                 <div className="mt-2 text-3xl font-extrabold">{p.price}</div>
                 <ul className="mt-4 space-y-2 text-slate-600">
-                  {p.features.map((f) => <li key={f}>• {f}</li>)}
+                  {p.features.map((f) => (
+                    <li key={f}>• {f}</li>
+                  ))}
                 </ul>
                 <a
                   href="#contact"
@@ -158,9 +222,20 @@ export default function App() {
               alert("Thanks! I’ll be in touch shortly.");
             }}
           >
-            <input className="border rounded-xl px-4 py-3" placeholder="Your name" />
-            <input className="border rounded-xl px-4 py-3" placeholder="Email address" type="email" />
-            <textarea className="border rounded-xl px-4 py-3" placeholder="Your goals" rows={4} />
+            <input
+              className="border rounded-xl px-4 py-3"
+              placeholder="Your name"
+            />
+            <input
+              className="border rounded-xl px-4 py-3"
+              placeholder="Email address"
+              type="email"
+            />
+            <textarea
+              className="border rounded-xl px-4 py-3"
+              placeholder="Your goals"
+              rows={4}
+            />
             <button
               type="submit"
               className="inline-flex items-center rounded-xl border border-indigo-600 px-5 py-3 font-semibold text-white bg-indigo-600 hover:bg-indigo-700 transition"
@@ -174,8 +249,12 @@ export default function App() {
       {/* Footer */}
       <footer className="py-8 border-t">
         <div className="mx-auto max-w-6xl px-4 text-sm text-slate-500 flex flex-col md:flex-row items-center justify-between gap-3">
-          <span>© {new Date().getFullYear()} KylePT. All rights reserved.</span>
-          <a href="#" className="hover:text-indigo-600">Privacy</a>
+          <span>
+            © {new Date().getFullYear()} KylePT. All rights reserved.
+          </span>
+          <a href="#" className="hover:text-indigo-600">
+            Privacy
+          </a>
         </div>
       </footer>
     </div>
