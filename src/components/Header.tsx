@@ -55,9 +55,9 @@ export default function Header() {
                 <a
                     href="/"
                     className="inline-flex items-center gap-2 font-extrabold tracking-tight text-xl"
-                    aria-label="Project Kizzle Home"
+                    aria-label="Kyle PT Home"
                 >
-                    <span className="select-none">Project Kizzle</span>
+                    <span className="select-none">Kyle PT</span>
                 </a>
 
                 {/* Desktop nav */}

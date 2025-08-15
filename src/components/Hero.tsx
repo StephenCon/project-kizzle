@@ -6,7 +6,7 @@ export default function Hero() {
                 className="absolute inset-0 bg-cover bg-center"
                 style={{
                     backgroundImage:
-                        "url('https://images.unsplash.com/photo-1596357395104-5e7e7528f1b3?q=80&w=2000&auto=format&fit=crop')",
+                        "url('https://images.unsplash.com/photo-1594737625785-c8fb6d711f40?q=80&w=2000&auto=format&fit=crop')",
                 }}
                 aria-hidden
             />
