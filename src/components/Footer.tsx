@@ -1,6 +1,6 @@
 export default function Footer() {
     return (
-        <footer className="py-8 bg-gradient-to-r from-indigo-600 to-purple-600 text-white animate-fade-in-up">
+        <footer className="py-8 bg-gradient-to-r from-brand-dark to-brand text-white animate-fade-in-up">
             <div className="mx-auto max-w-6xl px-4 text-sm flex flex-col md:flex-row items-center justify-between gap-3">
                 <span>© {new Date().getFullYear()} KylePT. All rights reserved.</span>
                 <a href="#" className="hover:underline">Privacy</a>
