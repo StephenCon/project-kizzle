@@ -8,7 +8,7 @@ import Footer from "../components/Footer";
 
 export default function Home() {
   return (
-    <div className="min-h-screen text-slate-900 space-y-24">
+    <div className="min-h-screen text-neutral-900 space-y-24">
       <Header />
       <Hero />
       <Services />

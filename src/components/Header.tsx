@@ -38,14 +38,14 @@ export default function Header() {
     return (
         <header
             className={[
-                "sticky top-0 z-40 bg-gradient-to-r from-indigo-600 to-purple-600 text-white",
+                "sticky top-0 z-40 bg-gradient-to-r from-brand-dark to-brand text-white",
                 elevated ? "shadow-lg" : "shadow-none",
             ].join(" ")}
         >
             {/* Skip link for accessibility */}
             <a
                 href="#main"
-                className="sr-only focus:not-sr-only focus:absolute focus:inset-x-0 focus:top-2 focus:mx-auto focus:w-max focus:rounded-lg focus:bg-indigo-600 focus:px-3 focus:py-2 focus:text-white"
+                className="sr-only focus:not-sr-only focus:absolute focus:inset-x-0 focus:top-2 focus:mx-auto focus:w-max focus:rounded-lg focus:bg-brand focus:px-3 focus:py-2 focus:text-white"
             >
                 Skip to content
             </a>
@@ -73,7 +73,7 @@ export default function Header() {
                     ))}
                     <a
                         href="#contact"
-                        className="ml-2 inline-flex items-center rounded-xl border border-white bg-white px-4 py-2 text-sm font-semibold text-indigo-700 hover:bg-indigo-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 transition"
+                        className="ml-2 inline-flex items-center rounded-xl border border-white bg-white px-4 py-2 text-sm font-semibold text-brand hover:bg-brand-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 transition"
                     >
                         Book a Free Consult
                     </a>
@@ -109,7 +109,7 @@ export default function Header() {
             <div
                 id="mobile-menu"
                 className={[
-                    "md:hidden overflow-hidden border-t border-white/20 bg-gradient-to-r from-indigo-700 to-purple-700 will-change-[max-height,opacity]",
+                    "md:hidden overflow-hidden border-t border-white/20 bg-gradient-to-r from-brand-dark to-[#c45e14] will-change-[max-height,opacity]",
                     mobileOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0",
                     "transition-all duration-300 ease-out",
                 ].join(" ")}
@@ -132,7 +132,7 @@ export default function Header() {
                     <a
                         href="#contact"
                         onClick={() => setMobileOpen(false)}
-                        className="mt-1 inline-flex items-center justify-center rounded-xl bg-white px-4 py-2 text-sm font-semibold text-indigo-700 hover:bg-indigo-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 transition"
+                        className="mt-1 inline-flex items-center justify-center rounded-xl bg-white px-4 py-2 text-sm font-semibold text-brand hover:bg-brand-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 transition"
                     >
                         Book a Free Consult
                     </a>

@@ -2,7 +2,7 @@ export default function ContactForm() {
     return (
         <section
             id="contact"
-            className="py-20 bg-gradient-to-r from-indigo-50 via-white to-indigo-50 animate-fade-in-up"
+            className="py-20 bg-gradient-to-r from-neutral-100 via-white to-neutral-100 animate-fade-in-up"
         >
             <div className="mx-auto max-w-6xl px-4">
                 <h2 className="text-3xl font-bold text-center">Book a Free Consultation</h2>
@@ -14,22 +14,22 @@ export default function ContactForm() {
                     }}
                 >
                     <input
-                        className="border-2 border-indigo-200 rounded-xl px-4 py-3 focus:border-indigo-500 transition"
+                        className="border-2 border-brand-light rounded-xl px-4 py-3 focus:border-brand transition"
                         placeholder="Your name"
                     />
                     <input
-                        className="border-2 border-indigo-200 rounded-xl px-4 py-3 focus:border-indigo-500 transition"
+                        className="border-2 border-brand-light rounded-xl px-4 py-3 focus:border-brand transition"
                         placeholder="Email address"
                         type="email"
                     />
                     <textarea
-                        className="border-2 border-indigo-200 rounded-xl px-4 py-3 focus:border-indigo-500 transition"
+                        className="border-2 border-brand-light rounded-xl px-4 py-3 focus:border-brand transition"
                         placeholder="Your goals"
                         rows={4}
                     />
                     <button
                         type="submit"
-                        className="inline-flex items-center justify-center rounded-xl bg-indigo-600 px-5 py-3 font-semibold text-white hover:bg-indigo-700 hover:-translate-y-0.5 transition-transform"
+                        className="inline-flex items-center justify-center rounded-xl bg-brand px-5 py-3 font-semibold text-white hover:bg-brand-dark hover:-translate-y-0.5 transition-transform"
                     >
                         Send
                     </button>
