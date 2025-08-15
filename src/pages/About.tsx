@@ -1,7 +1,7 @@
 
 export default function About() {
     return (
-        <div className="min-h-screen bg-gradient-to-b from-neutral-100 via-white to-[#14b3c4] p-8 flex flex-col items-center text-center animate-fade-in-up">
+        <div className="min-h-screen bg-gradient-to-b from-neutral-100 via-white to-brand p-8 flex flex-col items-center text-center animate-fade-in-up">
             <h1 className="text-4xl font-extrabold mb-6 text-brand">Meet Your Trainer</h1>
             <img
                 src="https://images.unsplash.com/photo-1558611848-73f7eb4001a1?q=80&w=800&auto=format&fit=crop"

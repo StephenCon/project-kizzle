@@ -109,7 +109,7 @@ export default function Header() {
             <div
                 id="mobile-menu"
                 className={[
-                    "md:hidden overflow-hidden border-t border-white/20 bg-gradient-to-r from-brand-dark to-[#c45e14] will-change-[max-height,opacity]",
+                    "md:hidden overflow-hidden border-t border-white/20 bg-gradient-to-r from-brand-dark to-brand will-change-[max-height,opacity]",
                     mobileOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0",
                     "transition-all duration-300 ease-out",
                 ].join(" ")}

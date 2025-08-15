@@ -4,7 +4,7 @@ export default function Services() {
     return (
         <section
             id="services"
-            className="py-20 bg-gradient-to-r from-neutral-100 via-white to-[#c45e14] border-t animate-fade-in-up"
+            className="py-20 bg-gradient-to-r from-neutral-100 via-white to-brand border-t animate-fade-in-up"
         >
             <div className="mx-auto max-w-6xl px-4">
                 <h2 className="text-3xl font-bold text-center">Services</h2>
