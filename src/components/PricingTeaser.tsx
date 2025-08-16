@@ -21,7 +21,7 @@ const TIERS: Tier[] = [
     {
         slug: "one-to-one-pt",
         name: "1:1 PT",
-        price: "from £50/session",
+        price: "from £40/session",
         points: ["Package discounts", "City centre gym", "Nutrition support"],
     },
     {
