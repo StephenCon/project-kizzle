@@ -5,7 +5,7 @@ export default function TrustBar() {
                 <span className="text-xs tracking-widest uppercase">CIMSPA Registered</span>
                 <span className="text-xs tracking-widest uppercase">REPs Certified</span>
                 <span className="text-xs tracking-widest uppercase">Google ★★★★★</span>
-                <span className="text-xs tracking-widest uppercase">Ancoats • Deansgate • NQ</span>
+                <span className="text-xs tracking-widest uppercase">Fallowfield</span>
             </div>
         </section>
     );
