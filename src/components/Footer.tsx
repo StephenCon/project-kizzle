@@ -40,7 +40,7 @@ export default function Footer() {
                 </div>
             </div>
             <div className="text-center text-xs text-slate-500 pb-8">
-                © {new Date().getFullYear()}Project Kizzle - Manchester
+                © {new Date().getFullYear()} Project Kizzle - Manchester
             </div>
         </footer>
     );
