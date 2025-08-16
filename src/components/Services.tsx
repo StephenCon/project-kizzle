@@ -24,7 +24,7 @@ const SERVICES: Service[] = [
         title: "1:1 Personal Training",
         summary: "Hands-on coaching in Manchester city centre with a plan built for you.",
         bullets: ["Tailored sessions", "Manchester city centre", "Nutrition support"],
-        price: "from £50/session",
+        price: "from £40/session",
     },
     {
         slug: "online-coaching",

@@ -18,7 +18,7 @@ export const TESTIMONIALS = [
 ];
 
 export const PRICING_PLANS = [
-    { name: "Single Session", price: "£50", features: ["60 minutes", "Technique focus", "Form feedback"] },
+    { name: "Single Session", price: "£40", features: ["60 minutes", "Technique focus", "Form feedback"] },
     { name: "Monthly Coaching", price: "£180", features: ["Weekly sessions", "Program + check-ins", "Nutrition basics"] },
     { name: "Online Coaching", price: "£120", features: ["Custom plan", "Form checks", "Messaging support"] },
 ];
