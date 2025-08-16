@@ -25,6 +25,7 @@ export default function Home() {
             <Banner />
             <LeadMagnet />
             <FAQ />
+            <Banner />
             <FinalCTA />
         </>
     );
