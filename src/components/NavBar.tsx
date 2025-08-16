@@ -42,7 +42,7 @@ export default function Navbar() {
                         className={`font-extrabold text-lg ${scrolled ? "text-slate-900" : "text-white"
                             }`}
                     >
-                        Project Kizzle
+                        Project Kizzle - Personal Training
                     </span>
                 </a>
 
