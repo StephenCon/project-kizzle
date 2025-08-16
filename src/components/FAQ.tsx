@@ -1,6 +1,6 @@
 export default function FAQ() {
     const qas: [string, string][] = [
-        ["Where do sessions happen?", "Manchester city centre gyms + mobile/home visits."],
+        ["Where do sessions happen?", "Fallowfield Gym + mobile/home visits."],
         ["Do I need experience?", "No—plans are tailored to your current level."],
         ["Is nutrition included?", "Yes, simple habit-based nutrition with weekly check-ins."],
         ["What if I’m busy?", "We build around your schedule so it’s sustainable."],

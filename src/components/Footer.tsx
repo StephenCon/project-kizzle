@@ -8,7 +8,7 @@ export default function Footer() {
                         Project Kizzle
                     </div>
                     <p className="mt-3 text-sm text-slate-600">
-                        Evidence-based coaching in Manchester city centre & online.
+                        Evidence-based coaching in Manchester & online.
                     </p>
                 </div>
 
