@@ -8,6 +8,7 @@ import PricingTeaser from "../components/PricingTeaser";
 import LeadMagnet from "../components/LeadMagnet";
 import FAQ from "../components/FAQ";
 import FinalCTA from "../components/FinalCTA";
+import Banner from "../components/ui/Banner";
 
 export default function Home() {
     return (
@@ -15,10 +16,13 @@ export default function Home() {
             <Hero />
             <TrustBar />
             <Services />
+            <Banner />
             <Process />
             <ResultsTeaser />
+            <Banner />
             <WhyTrain />
             <PricingTeaser />
+            <Banner />
             <LeadMagnet />
             <FAQ />
             <FinalCTA />
