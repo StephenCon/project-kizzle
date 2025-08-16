@@ -15,16 +15,22 @@ export default function Home() {
         <>
             <Hero />
             <TrustBar />
+
+            <Banner>NO EXCUSES • JUST RESULTS</Banner>
             <Services />
+
             <Banner />
             <Process />
+
             <ResultsTeaser />
-            <Banner />
+            <Banner>REAL PEOPLE • REAL RESULTS</Banner>
+
             <WhyTrain />
             <PricingTeaser />
-            <Banner />
+
             <LeadMagnet />
             <FAQ />
+
             <Banner />
             <FinalCTA />
         </>
