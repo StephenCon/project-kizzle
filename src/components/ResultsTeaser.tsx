@@ -6,11 +6,6 @@ export default function ResultsTeaser() {
                 <p className="mt-2 text-slate-600">
                     Before/after photos and short case studies coming soon.
                 </p>
-                <div className="mt-6 grid gap-4 sm:grid-cols-2 md:grid-cols-3">
-                    {[1, 2, 3, 4, 5, 6].map((i) => (
-                        <div key={i} className="aspect-[4/5] bg-slate-100 rounded-2xl" />
-                    ))}
-                </div>
                 <a
                     className="mt-6 inline-block font-semibold text-[#C62828] hover:underline"
                     href="#book"
