@@ -42,7 +42,7 @@ export default function Navbar() {
                         className={`font-extrabold text-lg ${scrolled ? "text-slate-900" : "text-white"
                             }`}
                     >
-                        Kyle PT Manchester
+                        Project Kizzle - Manchester
                     </span>
                 </a>
 

@@ -5,7 +5,7 @@ export default function Footer() {
                 <div>
                     <div className="flex items-center gap-2 font-bold text-lg">
                         <span className="h-8 w-8 rounded-md bg-[#C62828]" />
-                        Kyle PT Manchester
+                        Project Kizzle
                     </div>
                     <p className="mt-3 text-sm text-slate-600">
                         Evidence-based coaching in Manchester city centre & online.
@@ -40,7 +40,7 @@ export default function Footer() {
                 </div>
             </div>
             <div className="text-center text-xs text-slate-500 pb-8">
-                © {new Date().getFullYear()} Kyle PT Manchester
+                © {new Date().getFullYear()}Project Kizzle - Manchester
             </div>
         </footer>
     );
