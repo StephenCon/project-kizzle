@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+// src/components/Navbar.tsx
+import { useEffect, useState } from "react";
 import PrimaryButton from "./ui/PrimaryButton";
 
 export default function Navbar() {
@@ -12,45 +13,106 @@ export default function Navbar() {
         return () => window.removeEventListener("scroll", onScroll);
     }, []);
 
+    // White links when on dark (top), dark links when scrolled
+    const linkCls = scrolled
+        ? "text-slate-800 hover:text-[#C62828]"
+        : "text-white hover:text-[#ffd5d5]";
+
     return (
-        <header className={`sticky top-0 z-50 transition bg-white/80 backdrop-blur ${scrolled ? "shadow-sm" : ""}`}>
+        <header
+            className={`sticky top-0 z-50 transition-colors ${scrolled
+                    ? "bg-white/95 shadow-sm backdrop-blur"
+                    : // << make it readable at the top
+                    "bg-black/40 backdrop-blur-md"
+                }`}
+        >
             <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-                <a href="/" className="flex items-center gap-2 font-bold text-xl">
-                    <span className="h-8 w-8 rounded-xl bg-indigo-600 inline-block" />
-                    Kyle PT Manchester
+                {/* Logo + brand */}
+                <a href="/" className="flex items-center gap-3">
+                    {/* Swap to your real logo file */}
+                    <img
+                        src="/assets/images/logo.png"
+                        alt="Project Kizzle"
+                        className="h-8 w-auto"
+                        onError={(e) => {
+                            (e.currentTarget as HTMLImageElement).style.display = "none";
+                        }}
+                    />
+                    <span
+                        className={`font-extrabold text-lg ${scrolled ? "text-slate-900" : "text-white"
+                            }`}
+                    >
+                        Kyle PT Manchester
+                    </span>
                 </a>
 
+                {/* Desktop nav */}
+                <div className="hidden lg:flex items-center gap-8">
+                    {["Coaching", "Results", "Pricing", "Resources", "Contact"].map(
+                        (label) => (
+                            <a
+                                key={label}
+                                href={`#${label.toLowerCase()}`}
+                                className={`transition ${linkCls}`}
+                            >
+                                {label}
+                            </a>
+                        )
+                    )}
+                    <PrimaryButton
+                        as="a"
+                        href="#book"
+                        className={
+                            scrolled
+                                ? ""
+                                : // subtle outline when over dark hero
+                                "border border-white/20"
+                        }
+                    >
+                        Book Free Consultation
+                    </PrimaryButton>
+                </div>
+
+                {/* Mobile hamburger */}
                 <button
-                    className="lg:hidden p-2 rounded-md border border-slate-200"
-                    onClick={() => setOpen(!open)}
+                    onClick={() => setOpen((v) => !v)}
                     aria-label="Toggle menu"
+                    aria-expanded={open}
+                    className={`lg:hidden p-2 rounded-md border transition ${scrolled
+                            ? "border-slate-300 text-slate-900"
+                            : "border-white/30 text-white"
+                        }`}
                 >
-                    {/* hamburger icon */}
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-                        <path d="M3 6h18M3 12h18M3 18h18" stroke="black" strokeWidth="2" strokeLinecap="round" />
+                        <path
+                            d="M3 6h18M3 12h18M3 18h18"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                        />
                     </svg>
                 </button>
-
-                <div className="hidden lg:flex items-center gap-8">
-                    <a href="#coaching" className="hover:text-indigo-600">Coaching</a>
-                    <a href="#results" className="hover:text-indigo-600">Results</a>
-                    <a href="#pricing" className="hover:text-indigo-600">Pricing</a>
-                    <a href="#resources" className="hover:text-indigo-600">Resources</a>
-                    <a href="#contact" className="hover:text-indigo-600">Contact</a>
-                    <PrimaryButton as="a" href="#book">Book Free Consultation</PrimaryButton>
-                </div>
             </nav>
 
-            {/* Mobile menu */}
+            {/* Mobile panel */}
             {open && (
-                <div className="lg:hidden border-t border-slate-200">
-                    <div className="mx-auto max-w-6xl px-4 py-3 flex flex-col gap-3">
-                        <a href="#coaching" onClick={() => setOpen(false)}>Coaching</a>
-                        <a href="#results" onClick={() => setOpen(false)}>Results</a>
-                        <a href="#pricing" onClick={() => setOpen(false)}>Pricing</a>
-                        <a href="#resources" onClick={() => setOpen(false)}>Resources</a>
-                        <a href="#contact" onClick={() => setOpen(false)}>Contact</a>
-                        <PrimaryButton as="a" href="#book" onClick={() => setOpen(false)}>Book Free Consultation</PrimaryButton>
+                <div className="lg:hidden border-t border-slate-200 bg-white">
+                    <div className="mx-auto max-w-6xl px-4 py-4 flex flex-col gap-3">
+                        {["coaching", "results", "pricing", "resources", "contact"].map(
+                            (id) => (
+                                <a
+                                    key={id}
+                                    href={`#${id}`}
+                                    onClick={() => setOpen(false)}
+                                    className="py-2 text-slate-800 hover:text-[#C62828]"
+                                >
+                                    {id[0].toUpperCase() + id.slice(1)}
+                                </a>
+                            )
+                        )}
+                        <PrimaryButton as="a" href="#book" onClick={() => setOpen(false)}>
+                            Book Free Consultation
+                        </PrimaryButton>
                     </div>
                 </div>
             )}
