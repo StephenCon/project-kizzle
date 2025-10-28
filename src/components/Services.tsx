@@ -1,7 +1,6 @@
 // src/components/home/Services.tsx
-import { Check, Sparkles } from "lucide-react";
-import { motion, useReducedMotion } from "framer-motion";
-import type { Variants, Transition } from "framer-motion";
+import { Check } from "lucide-react";
+import { motion, useReducedMotion, type Variants, type Transition } from "framer-motion";
 
 /** ---------- Easing ---------- */
 const EASE_OUT: Transition["ease"] = [0.16, 1, 0.3, 1];
@@ -13,7 +12,6 @@ type Service = {
     summary: string;
     bullets: string[];
     price?: string;
-    highlight?: boolean;
 };
 
 /** ---------- Data ---------- */
@@ -31,7 +29,6 @@ const SERVICES: Service[] = [
         summary: "App-based programming, check-ins, and form feedback—train anywhere.",
         bullets: ["App-based training", "Weekly check-ins", "Form feedback"],
         price: "COMING SOON",
-        highlight: true,
     },
     {
         slug: "small-group",
@@ -43,19 +40,10 @@ const SERVICES: Service[] = [
 ];
 
 /** ---------- Small Presentational Bits ---------- */
-function ServiceBadge() {
-    return (
-        <span className="inline-flex items-center gap-1 rounded-full bg-[#C62828]/10 text-[#C62828] px-2.5 py-1 text-[11px] font-semibold tracking-wide">
-            <Sparkles className="h-3.5 w-3.5" aria-hidden />
-            Most Popular
-        </span>
-    );
-}
-
 function Bullet({ text }: { text: string }) {
     return (
         <li className="flex gap-2 text-sm text-slate-700">
-            <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-[#C62828]" aria-hidden />
+            <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-[#C62828]" aria-hidden="true" />
             <span>{text}</span>
         </li>
     );
@@ -139,24 +127,19 @@ export default function Services() {
                             whileHover={reduce ? {} : { y: -4 }}
                             whileFocus={reduce ? {} : { y: -2 }}
                             tabIndex={0}
-                            className="group relative rounded-2xl border bg-white p-6 shadow-sm transition
-                         hover:shadow-md focus:shadow-md
-                         hover:border-[#C62828]/60 focus:border-[#C62828]/60 outline-none"
+                            className="group relative rounded-2xl border bg-white p-6 shadow-sm transition hover:shadow-md focus:shadow-md hover:border-[#C62828]/60 focus:border-[#C62828]/60 outline-none"
                             role="listitem"
                             aria-labelledby={`${card.slug}-title`}
                         >
                             {/* subtle corner accent */}
                             <div
                                 className="pointer-events-none absolute -inset-px rounded-2xl bg-[radial-gradient(120px_80px_at_100%_0%,rgba(198,40,40,0.08),transparent)]"
-                                aria-hidden
+                                aria-hidden="true"
                             />
 
-                            <div className="flex items-start justify-between gap-3">
-                                <h3 id={`${card.slug}-title`} className="font-semibold text-xl">
-                                    {card.title}
-                                </h3>
-                                {card.highlight && <ServiceBadge />}
-                            </div>
+                            <h3 id={`${card.slug}-title`} className="font-semibold text-xl">
+                                {card.title}
+                            </h3>
 
                             {card.price && (
                                 <motion.div
@@ -182,9 +165,6 @@ export default function Services() {
                                 <a
                                     href="#book"
                                     className="text-[#C62828] font-semibold underline-offset-4 hover:underline focus:underline focus:outline-none"
-                                    aria-label={`Learn more about ${card.title}`}
-                                    data-analytics="services_learn_more"
-                                    data-service={card.slug}
                                 >
                                     Learn more →
                                 </a>
@@ -192,24 +172,21 @@ export default function Services() {
                                 <a
                                     href="#book"
                                     className="text-sm text-slate-600 underline-offset-4 hover:underline focus:underline focus:outline-none"
-                                    aria-label={`Book ${card.title}`}
                                 >
                                     Book now
                                 </a>
                             </div>
 
-                            {/* make the entire card clickable for pointer users only (keeps keyboard semantics) */}
+                            {/* whole-card clickable overlay */}
                             <a
                                 href="#book"
-                                aria-hidden
+                                aria-hidden="true"
                                 tabIndex={-1}
                                 className="absolute inset-0 rounded-2xl ring-offset-2 focus:outline-none focus:ring-2 focus:ring-[#C62828]/60"
                             />
                         </motion.article>
                     ))}
                 </motion.div>
-
-                
             </div>
         </motion.section>
     );
