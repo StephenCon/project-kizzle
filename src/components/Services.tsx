@@ -1,6 +1,5 @@
 // src/components/home/Services.tsx
 import { Check, Sparkles } from "lucide-react";
-import PrimaryButton from "../components/ui/PrimaryButton";
 import { motion, useReducedMotion } from "framer-motion";
 import type { Variants, Transition } from "framer-motion";
 
@@ -24,14 +23,14 @@ const SERVICES: Service[] = [
         title: "1:1 Personal Training",
         summary: "Hands-on coaching in Manchester with a plan built for you.",
         bullets: ["Tailored sessions", "Manchester", "Nutrition support"],
-        price: "from £40/session",
+        price: "from £25/session",
     },
     {
         slug: "online-coaching",
         title: "Online Coaching",
         summary: "App-based programming, check-ins, and form feedback—train anywhere.",
         bullets: ["App-based training", "Weekly check-ins", "Form feedback"],
-        price: "£119/month",
+        price: "COMING SOON",
         highlight: true,
     },
     {
@@ -39,7 +38,7 @@ const SERVICES: Service[] = [
         title: "Small Group",
         summary: "Train with friends (2–4 people). Same quality, lower cost.",
         bullets: ["2–4 people", "Lower cost", "Fixed time slots"],
-        price: "£25/person",
+        price: "COMING SOON",
     },
 ];
 
@@ -210,13 +209,7 @@ export default function Services() {
                     ))}
                 </motion.div>
 
-                <motion.div
-                    className="mt-10"
-                    variants={sectionVariants}
-                    custom={{ delayBase: 0.15, reduced: reduce }}
-                >
-                    <PrimaryButton as="a" href="#book">Start the process</PrimaryButton>
-                </motion.div>
+                
             </div>
         </motion.section>
     );

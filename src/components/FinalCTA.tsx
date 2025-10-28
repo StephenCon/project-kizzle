@@ -1,8 +1,6 @@
 // src/components/home/FinalCTA.tsx
-import PrimaryButton from "../components/ui/PrimaryButton";
-import { motion, useReducedMotion } from "framer-motion";
-import type { Variants, Transition } from "framer-motion";
-import { CalendarDays, MessageCircle, Mail } from "lucide-react";
+import { motion, useReducedMotion, type Variants, type Transition } from "framer-motion";
+import { MessageCircle, Mail } from "lucide-react";
 
 /** ---------- Easing ---------- */
 const EASE_OUT: Transition["ease"] = [0.16, 1, 0.3, 1];
@@ -55,69 +53,32 @@ export default function FinalCTA() {
                     </p>
 
                     <div className="mt-6 flex flex-wrap items-center gap-3">
-                        <PrimaryButton as="a" href="#book" className="inline-flex items-center gap-2">
-                            <CalendarDays className="h-5 w-5" />
-                            Book Free Consultation
-                        </PrimaryButton>
-
                         <a
-                            className="inline-flex items-center justify-center rounded-xl px-5 py-3 font-semibold
-                         border border-slate-300 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-[#C62828]/40"
-                            href="https://wa.me/447000000000?text=Hi%20Kyle%2C%20I%27d%20like%20to%20book%20a%20consultation."
+                            className="inline-flex items-center justify-center rounded-xl px-5 py-3 font-semibold border border-slate-300 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-[#C62828]/40"
+                            href="https://wa.me/447704505381?text=Hi%20Kyle%2C%20I%27d%20like%20to%20book%20a%20consultation."
                             target="_blank"
                             rel="noreferrer"
                             aria-label="Chat via WhatsApp"
                         >
-                            <MessageCircle className="mr-2 h-5 w-5" />
+                            <MessageCircle className="mr-2 h-5 w-5" aria-hidden="true" />
                             WhatsApp
                         </a>
                     </div>
 
                     <div className="mt-4 text-sm text-slate-600 flex items-center gap-2">
-                        <Mail className="h-4 w-4 text-slate-500" aria-hidden />
+                        <Mail className="h-4 w-4 text-slate-500" aria-hidden="true" />
                         Prefer email?{" "}
-                        <a className="text-[#C62828] font-medium underline-offset-4 hover:underline focus:underline"
-                            href="mailto:Kizzlept@gmail.com">
+                        <a
+                            className="text-[#C62828] font-medium underline-offset-4 hover:underline focus:underline"
+                            href="mailto:Kizzlept@gmail.com"
+                        >
                             Kizzlept@gmail.com
                         </a>
                     </div>
                 </motion.div>
 
-                {/* Right: Booking widget */}
-                <motion.div
-                    id="book"
-                    variants={cardVariants}
-                    custom={{ reduced: !!reduce }}
-                    className="rounded-2xl border bg-white p-4 shadow-sm"
-                >
-                    {/* Replace this block with your live Calendly/Cal.com embed */}
-                    {/* Example (Cal.com):
-              <div className="relative aspect-video">
-                <iframe
-                  src="https://cal.com/your-handle/consultation?embed=1"
-                  className="absolute inset-0 h-full w-full rounded-xl"
-                  frameBorder="0"
-                />
-              </div>
-          */}
-                    <div className="relative aspect-video w-full rounded-xl bg-slate-100 flex items-center justify-center text-slate-500">
-                        Booking widget placeholder
-                    </div>
-
-                    <p className="mt-3 text-xs text-slate-500">
-                        Tip: add a Cal.com or Calendly iframe here so clients can book instantly.
-                    </p>
-
-                    {/* Quick micro-faq / reassurance row */}
-                    <div className="mt-4 grid grid-cols-2 gap-3 text-xs text-slate-600">
-                        <div className="rounded-lg border bg-slate-50 p-3">
-                            ✅ 100% free consult
-                        </div>
-                        <div className="rounded-lg border bg-slate-50 p-3">
-                            ✅ No contracts required
-                        </div>
-                    </div>
-                </motion.div>
+                {/* Right column left empty intentionally (layout balance / future content) */}
+                <div aria-hidden className="hidden md:block" />
             </div>
         </motion.section>
     );

@@ -59,18 +59,7 @@ export default function Navbar() {
                             </a>
                         )
                     )}
-                    <PrimaryButton
-                        as="a"
-                        href="#book"
-                        className={
-                            scrolled
-                                ? ""
-                                : // subtle outline when over dark hero
-                                "border border-white/20"
-                        }
-                    >
-                        Book Free Consultation
-                    </PrimaryButton>
+                  
                 </div>
 
                 {/* Mobile hamburger */}

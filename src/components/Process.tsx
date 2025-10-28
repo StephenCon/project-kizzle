@@ -1,7 +1,6 @@
 // src/components/home/Process.tsx
-import PrimaryButton from "../components/ui/PrimaryButton";
-import { motion, useReducedMotion } from "framer-motion";
-import type { Variants, Transition } from "framer-motion";
+import { motion, useReducedMotion, type Variants, type Transition } from "framer-motion";
+import type { ComponentType } from "react";
 import { MessageSquare, Dumbbell, TrendingUp } from "lucide-react";
 
 /** ---------- Easing ---------- */
@@ -12,7 +11,7 @@ type Step = {
     n: number;
     title: string;
     text: string;
-    icon: React.ComponentType<{ className?: string }>;
+    icon: ComponentType<{ className?: string }>;
 };
 
 const STEPS: Step[] = [
@@ -93,7 +92,10 @@ export default function Process() {
 
                 {/* Connector line for md+ screens */}
                 <div className="relative mt-10">
-                    <div className="pointer-events-none absolute left-1/2 hidden h-[2px] w-full -translate-x-1/2 -translate-y-4 bg-gradient-to-r from-transparent via-[#C62828]/20 to-transparent md:block" />
+                    <div
+                        className="pointer-events-none absolute left-1/2 hidden h-[2px] w-full -translate-x-1/2 -translate-y-4 bg-gradient-to-r from-transparent via-[#C62828]/20 to-transparent md:block"
+                        aria-hidden="true"
+                    />
 
                     <motion.div
                         className="grid gap-6 md:grid-cols-3"
@@ -119,7 +121,7 @@ export default function Process() {
                                 {/* subtle background accent */}
                                 <div
                                     className="pointer-events-none absolute -inset-px rounded-2xl bg-[radial-gradient(140px_100px_at_100%_0%,rgba(198,40,40,0.08),transparent)]"
-                                    aria-hidden
+                                    aria-hidden="true"
                                 />
 
                                 {/* Number + Icon */}
@@ -128,9 +130,16 @@ export default function Process() {
                                         <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#C62828] font-bold text-white">
                                             {s.n}
                                         </div>
-                                        <div className="pointer-events-none absolute -inset-1 rounded-full opacity-0 blur-md transition-opacity duration-300 group-hover:opacity-70" style={{ background: "radial-gradient(closest-side, rgba(198,40,40,0.25), transparent)" }} />
+                                        <div
+                                            className="pointer-events-none absolute -inset-1 rounded-full opacity-0 blur-md transition-opacity duration-300 group-hover:opacity-70"
+                                            style={{
+                                                background:
+                                                    "radial-gradient(closest-side, rgba(198,40,40,0.25), transparent)",
+                                            }}
+                                            aria-hidden="true"
+                                        />
                                     </div>
-                                    <s.icon className="h-5 w-5 text-[#C62828]" aria-hidden />
+                                    <s.icon className="h-5 w-5 text-[#C62828]" aria-hidden="true" />
                                 </div>
 
                                 <h3 id={`step-${s.n}-title`} className="mt-4 font-semibold text-xl">
@@ -152,7 +161,7 @@ export default function Process() {
                                 {/* Whole-card pointer overlay (keeps keyboard semantics intact) */}
                                 <a
                                     href="#book"
-                                    aria-hidden
+                                    aria-hidden="true"
                                     tabIndex={-1}
                                     className="absolute inset-0 rounded-2xl"
                                 />
@@ -160,14 +169,6 @@ export default function Process() {
                         ))}
                     </motion.div>
                 </div>
-
-                <motion.div
-                    className="mt-10"
-                    variants={sectionVariants}
-                    custom={{ reduced: !!reduce }}
-                >
-                    <PrimaryButton as="a" href="#book">Start the process</PrimaryButton>
-                </motion.div>
             </div>
         </motion.section>
     );

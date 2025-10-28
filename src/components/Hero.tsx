@@ -41,7 +41,7 @@ export default function Hero() {
                     <div className="mt-8 flex flex-wrap gap-3">
                         <PrimaryButton as="a" href="#book">Book Free Consultation</PrimaryButton>
                         <a
-                            href="https://wa.me/447000000000"
+                            href="https://wa.me/447704505381"
                             target="_blank"
                             rel="noreferrer"
                             className="inline-flex items-center justify-center rounded-xl px-6 py-3 font-semibold

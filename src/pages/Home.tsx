@@ -4,7 +4,6 @@ import Services from "../components/Services";
 import Process from "../components/Process";
 import ResultsTeaser from "../components/ResultsTeaser";
 import WhyTrain from "../components/WhyTrain";
-import PricingTeaser from "../components/PricingTeaser";
 import LeadMagnet from "../components/LeadMagnet";
 import FAQ from "../components/FAQ";
 import FinalCTA from "../components/FinalCTA";
@@ -26,7 +25,6 @@ export default function Home() {
             <Banner>REAL PEOPLE • REAL RESULTS</Banner>
 
             <WhyTrain />
-            <PricingTeaser />
 
             <LeadMagnet />
             <FAQ />

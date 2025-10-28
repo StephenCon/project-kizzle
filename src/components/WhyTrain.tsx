@@ -1,5 +1,4 @@
 // src/components/home/WhyTrain.tsx
-import PrimaryButton from "../components/ui/PrimaryButton";
 import { motion, useReducedMotion } from "framer-motion";
 import type { Variants, Transition } from "framer-motion";
 import { CheckCircle2, Dumbbell, ClipboardList, Timer } from "lucide-react";
@@ -136,7 +135,6 @@ export default function WhyTrain() {
                         variants={sectionVariants}
                         custom={{ reduced: !!reduce }}
                     >
-                        <PrimaryButton as="a" href="#book">Book Free Consultation</PrimaryButton>
                     </motion.div>
                 </div>
 
