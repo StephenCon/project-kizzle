@@ -1,4 +1,4 @@
-import PrimaryButton from "../components/ui/PrimaryButton";
+
 
 export default function Hero() {
     return (
@@ -39,7 +39,6 @@ export default function Hero() {
                     </p>
 
                     <div className="mt-8 flex flex-wrap gap-3">
-                        <PrimaryButton as="a" href="#book">Book Free Consultation</PrimaryButton>
                         <a
                             href="https://wa.me/447704505381"
                             target="_blank"
