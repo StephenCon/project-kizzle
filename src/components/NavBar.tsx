@@ -6,7 +6,6 @@ const NAV_ITEMS = [
     { label: "Results", href: "#results" },
     { label: "Pricing", href: "#pricing" },
     { label: "Resources", href: "#resources" },
-    { label: "Contact", href: "#book" },
 ];
 
 export default function Navbar() {
@@ -21,54 +20,59 @@ export default function Navbar() {
     }, []);
 
     const linkCls = scrolled
-        ? "text-slate-800 hover:text-[#C62828]"
-        : "text-white hover:text-[#ffd5d5]";
+        ? "text-slate-700 hover:text-[#C62828]"
+        : "text-white/90 hover:text-white";
 
     return (
         <header
-            className={`sticky top-0 z-50 transition-colors ${scrolled
-                    ? "bg-white/95 shadow-sm backdrop-blur"
-                    : "bg-black/40 backdrop-blur-md"
+            className={`sticky top-0 z-50 border-b transition-all ${scrolled
+                    ? "border-slate-200 bg-white/95 shadow-sm backdrop-blur"
+                    : "border-white/10 bg-black/35 backdrop-blur-md"
                 }`}
         >
             <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-                <a href="/" className="flex items-center gap-3">
+                <a href="/" className="flex items-center gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C62828]/50">
                     <span
                         aria-hidden="true"
-                        className="inline-flex h-8 w-8 items-center justify-center rounded-md bg-[#C62828] font-black text-white"
+                        className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-[#C62828] font-black text-white shadow-sm"
                     >
                         PK
                     </span>
-                    <span
-                        className={`font-extrabold text-lg ${scrolled ? "text-slate-900" : "text-white"
-                            }`}
-                    >
-                        Project Kizzle - Personal Training
-                    </span>
+                    <div className="leading-tight">
+                        <div className={`text-base font-extrabold ${scrolled ? "text-slate-900" : "text-white"}`}>
+                            Project Kizzle
+                        </div>
+                        <div className={`text-xs uppercase tracking-[0.18em] ${scrolled ? "text-slate-500" : "text-white/70"}`}>
+                            Personal Training
+                        </div>
+                    </div>
                 </a>
 
-                <div className="hidden lg:flex items-center gap-8">
+                <div className="hidden items-center gap-7 lg:flex">
                     {NAV_ITEMS.map((item) => (
                         <a
                             key={item.label}
                             href={item.href}
-                            className={`transition ${linkCls}`}
+                            className={`text-sm font-medium transition focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C62828]/40 ${linkCls}`}
                         >
                             {item.label}
                         </a>
                     ))}
+                    <PrimaryButton as="a" href="#book" className="px-4 py-2.5 text-sm">
+                        Book a consultation
+                    </PrimaryButton>
                 </div>
 
                 <button
-                    onClick={() => setOpen((v) => !v)}
+                    onClick={() => setOpen((value) => !value)}
                     aria-label="Toggle menu"
                     aria-expanded={open}
-                    className={`lg:hidden p-2 rounded-md border transition ${scrolled
+                    className={`rounded-lg border p-2 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C62828]/40 lg:hidden ${scrolled
                             ? "border-slate-300 text-slate-900"
                             : "border-white/30 text-white"
                         }`}
                 >
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                         <path
                             d="M3 6h18M3 12h18M3 18h18"
                             stroke="currentColor"
@@ -80,20 +84,20 @@ export default function Navbar() {
             </nav>
 
             {open && (
-                <div className="lg:hidden border-t border-slate-200 bg-white">
-                    <div className="mx-auto max-w-6xl px-4 py-4 flex flex-col gap-3">
+                <div className="border-t border-slate-200 bg-white lg:hidden">
+                    <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-4">
                         {NAV_ITEMS.map((item) => (
                             <a
                                 key={item.label}
                                 href={item.href}
                                 onClick={() => setOpen(false)}
-                                className="py-2 text-slate-800 hover:text-[#C62828]"
+                                className="rounded-lg px-3 py-3 text-sm font-medium text-slate-800 transition hover:bg-slate-50 hover:text-[#C62828] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C62828]/40"
                             >
                                 {item.label}
                             </a>
                         ))}
-                        <PrimaryButton as="a" href="#book">
-                            Book Free Consultation
+                        <PrimaryButton as="a" href="#book" className="mt-2">
+                            Book free consultation
                         </PrimaryButton>
                     </div>
                 </div>

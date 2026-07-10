@@ -1,78 +1,52 @@
-import { motion, useReducedMotion, type Transition, type Variants } from "framer-motion";
 import { Mail, MapPin } from "lucide-react";
 
-const EASE_OUT: Transition["ease"] = [0.16, 1, 0.3, 1];
-
-const containerVariants: Variants = {
-    hidden: {},
-    visible: (custom: { reduced: boolean }) => ({
-        transition: {
-            staggerChildren: custom.reduced ? 0 : 0.08,
-        },
-    }),
-};
-
-const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 12 },
-    visible: (custom: { reduced: boolean }) => ({
-        opacity: 1,
-        y: 0,
-        transition: { duration: custom.reduced ? 0 : 0.4, ease: EASE_OUT },
-    }),
-};
+const FOOTER_LINKS = [
+    { label: "Coaching", href: "#coaching" },
+    { label: "Results", href: "#results" },
+    { label: "Pricing", href: "#pricing" },
+    { label: "Resources", href: "#resources" },
+];
 
 export default function Footer() {
-    const reduce = useReducedMotion();
-
     return (
-        <motion.footer
-            className="mt-20 border-t bg-white"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.15 }}
-            variants={containerVariants}
-            custom={{ reduced: !!reduce }}
-        >
-            <div className="mx-auto max-w-6xl px-4 py-12 grid gap-10 md:grid-cols-3">
-                <motion.div variants={itemVariants} custom={{ reduced: !!reduce }}>
-                    <div className="flex items-center gap-2 font-bold text-lg">
-                        <span className="h-8 w-8 rounded-md bg-[#C62828]" />
-                        Project Kizzle
+        <footer className="mt-20 border-t border-slate-200 bg-white">
+            <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 md:grid-cols-3">
+                <div>
+                    <div className="flex items-center gap-3">
+                        <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-[#C62828] font-black text-white">
+                            PK
+                        </span>
+                        <div>
+                            <div className="text-lg font-bold text-slate-900">Project Kizzle</div>
+                            <div className="text-xs uppercase tracking-[0.18em] text-slate-500">
+                                Personal Training
+                            </div>
+                        </div>
                     </div>
-                    <p className="mt-3 text-sm text-slate-600">
-                        Evidence-based coaching in Manchester &amp; online.
+                    <p className="mt-4 max-w-xs text-sm leading-6 text-slate-600">
+                        Evidence-based coaching in Manchester for people who want practical structure and real progress.
                     </p>
-                </motion.div>
+                </div>
 
-                <motion.div variants={itemVariants} custom={{ reduced: !!reduce }}>
-                    <h4 className="font-semibold mb-3">Quick Links</h4>
-                    <ul className="space-y-2 text-sm">
-                        <li>
-                            <a href="#coaching" className="hover:text-[#C62828]">
-                                Coaching
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#results" className="hover:text-[#C62828]">
-                                Results
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#pricing" className="hover:text-[#C62828]">
-                                Pricing
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#resources" className="hover:text-[#C62828]">
-                                Resources
-                            </a>
-                        </li>
+                <div>
+                    <h4 className="text-sm font-semibold uppercase tracking-[0.16em] text-slate-500">Quick links</h4>
+                    <ul className="mt-4 space-y-3 text-sm">
+                        {FOOTER_LINKS.map((link) => (
+                            <li key={link.label}>
+                                <a
+                                    href={link.href}
+                                    className="text-slate-700 transition hover:text-[#C62828] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C62828]/30"
+                                >
+                                    {link.label}
+                                </a>
+                            </li>
+                        ))}
                     </ul>
-                </motion.div>
+                </div>
 
-                <motion.div variants={itemVariants} custom={{ reduced: !!reduce }}>
-                    <h4 className="font-semibold mb-3">Contact</h4>
-                    <ul className="space-y-2 text-sm">
+                <div>
+                    <h4 className="text-sm font-semibold uppercase tracking-[0.16em] text-slate-500">Contact</h4>
+                    <ul className="mt-4 space-y-3 text-sm text-slate-700">
                         <li className="flex items-center gap-2">
                             <MapPin className="h-4 w-4 text-slate-500" aria-hidden />
                             Manchester, UK
@@ -81,22 +55,18 @@ export default function Footer() {
                             <Mail className="h-4 w-4 text-slate-500" aria-hidden />
                             <a
                                 href="mailto:kizzlept@gmail.com"
-                                className="hover:text-[#C62828]"
+                                className="transition hover:text-[#C62828] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C62828]/30"
                             >
                                 kizzlept@gmail.com
                             </a>
                         </li>
                     </ul>
-                </motion.div>
+                </div>
             </div>
 
-            <motion.div
-                className="text-center text-xs text-slate-500 pb-8"
-                variants={itemVariants}
-                custom={{ reduced: !!reduce }}
-            >
-                (c) {new Date().getFullYear()} Project Kizzle - Manchester
-            </motion.div>
-        </motion.footer>
+            <div className="border-t border-slate-200 py-6 text-center text-xs text-slate-500">
+                © {new Date().getFullYear()} Project Kizzle. Manchester-based personal training.
+            </div>
+        </footer>
     );
 }

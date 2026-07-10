@@ -1,7 +1,8 @@
 import { useState, type FormEvent } from "react";
 import { motion, useReducedMotion, type Transition, type Variants } from "framer-motion";
 import { CheckCircle2, Mail, MessageCircle } from "lucide-react";
-import PrimaryButton from "../components/ui/PrimaryButton";
+import PrimaryButton from "./ui/PrimaryButton";
+import SectionHeader from "./ui/SectionHeader";
 
 const EASE_OUT: Transition["ease"] = [0.16, 1, 0.3, 1];
 
@@ -54,47 +55,37 @@ export default function LeadMagnet() {
     return (
         <motion.section
             id="resources"
-            className="py-16 bg-[#fff5f5]"
+            className="bg-[#fff8f7] py-20"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.25 }}
             variants={sectionVariants}
             custom={{ reduced: !!reduce }}
         >
-            <div className="mx-auto grid max-w-6xl gap-10 px-4 md:grid-cols-[1.1fr_0.9fr] md:items-center">
+            <div className="mx-auto grid max-w-6xl gap-10 px-4 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
                 <div>
-                    <motion.h3
-                        className="text-2xl md:text-3xl font-extrabold tracking-tight"
-                        variants={itemVariants}
-                        custom={{ reduced: !!reduce }}
-                    >
-                        Free 7-day kickstart
-                    </motion.h3>
-
-                    <motion.p
-                        className="mt-3 max-w-2xl text-slate-700"
-                        variants={itemVariants}
-                        custom={{ reduced: !!reduce }}
-                    >
-                        Request the starter pack and Kyle will send over a simple plan you can start with straight away.
-                    </motion.p>
+                    <SectionHeader
+                        eyebrow="Free resource"
+                        title="A useful starting point if you want structure straight away"
+                        description="Request the free 7-day kickstart pack and Kyle will send over a simple plan you can actually begin with."
+                    />
 
                     <motion.ul
-                        className="mt-6 space-y-3 text-sm text-slate-700"
+                        className="mt-6 space-y-4 text-sm text-slate-700"
                         variants={sectionVariants}
                         custom={{ reduced: !!reduce }}
                     >
                         {DELIVERABLES.map((item) => (
                             <li key={item} className="flex items-start gap-3">
                                 <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-[#C62828]" aria-hidden />
-                                <span>{item}</span>
+                                <span className="leading-6">{item}</span>
                             </li>
                         ))}
                     </motion.ul>
                 </div>
 
                 <motion.div
-                    className="rounded-2xl border bg-white p-6 shadow-sm"
+                    className="rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-sm"
                     variants={itemVariants}
                     custom={{ reduced: !!reduce }}
                 >
@@ -114,7 +105,7 @@ export default function LeadMagnet() {
                                 value={email}
                                 onChange={(event) => setEmail(event.target.value)}
                                 placeholder="you@example.com"
-                                className="w-full rounded-xl border py-3 pl-10 pr-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#C62828]/50"
+                                className="w-full rounded-xl border border-slate-300 py-3 pl-10 pr-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#C62828]/50"
                             />
                         </div>
 
@@ -123,19 +114,19 @@ export default function LeadMagnet() {
                         </PrimaryButton>
                     </form>
 
-                    <div className="mt-4 border-t pt-4">
+                    <div className="mt-5 border-t border-slate-200 pt-5">
                         <a
                             href="https://wa.me/447704505381?text=Hi%20Kyle%2C%20I%27d%20like%20the%20free%207-day%20kickstart%20pack."
                             target="_blank"
                             rel="noreferrer"
-                            className="inline-flex items-center gap-2 text-sm font-medium text-[#C62828] underline-offset-4 hover:underline"
+                            className="inline-flex items-center gap-2 text-sm font-medium text-[#C62828] underline-offset-4 hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C62828]/30"
                         >
                             <MessageCircle className="h-4 w-4" aria-hidden />
                             Prefer WhatsApp? Request it there instead
                         </a>
                     </div>
 
-                    <p className="mt-4 text-xs text-slate-500">
+                    <p className="mt-4 text-xs leading-5 text-slate-500">
                         This opens your email app with the request pre-filled so Kyle can send the pack manually.
                     </p>
                 </motion.div>

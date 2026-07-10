@@ -1,5 +1,7 @@
 import { Check } from "lucide-react";
 import { motion, useReducedMotion, type Transition, type Variants } from "framer-motion";
+import PrimaryButton from "./ui/PrimaryButton";
+import SectionHeader from "./ui/SectionHeader";
 
 const EASE_OUT: Transition["ease"] = [0.16, 1, 0.3, 1];
 
@@ -9,40 +11,32 @@ type Service = {
     summary: string;
     bullets: string[];
     price?: string;
+    status?: string;
 };
 
 const SERVICES: Service[] = [
     {
         slug: "one-to-one-pt",
         title: "1:1 Personal Training",
-        summary: "Hands-on coaching in Manchester with a plan built for you.",
-        bullets: ["Tailored sessions", "Manchester", "Nutrition support"],
-        price: "from GBP 25/session",
+        summary: "Hands-on coaching in Manchester with a plan built around your goals and experience level.",
+        bullets: ["Tailored sessions", "Technique coaching", "Nutrition support"],
+        price: "From GBP 25/session",
     },
     {
         slug: "online-coaching",
         title: "Online Coaching",
-        summary: "App-based programming, check-ins, and form feedback - train anywhere.",
+        summary: "Programming, check-ins, and accountability for people who need structure around a busy week.",
         bullets: ["App-based training", "Weekly check-ins", "Form feedback"],
-        price: "COMING SOON",
+        status: "Waitlist",
     },
     {
         slug: "small-group",
         title: "Small Group",
-        summary: "Train with friends (2-4 people). Same quality, lower cost.",
-        bullets: ["2-4 people", "Lower cost", "Fixed time slots"],
-        price: "COMING SOON",
+        summary: "A lower-cost option for training with friends while still getting proper coaching and progression.",
+        bullets: ["2-4 people", "Fixed slots", "Supportive atmosphere"],
+        status: "Waitlist",
     },
 ];
-
-function Bullet({ text }: { text: string }) {
-    return (
-        <li className="flex gap-2 text-sm text-slate-700">
-            <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-[#C62828]" aria-hidden="true" />
-            <span>{text}</span>
-        </li>
-    );
-}
 
 const sectionVariants: Variants = {
     hidden: { opacity: 0, y: 10 },
@@ -62,7 +56,7 @@ const listVariants: Variants = {
     visible: (custom: { reduced: boolean }) => ({
         transition: {
             staggerChildren: custom.reduced ? 0 : 0.08,
-            delayChildren: custom.reduced ? 0 : 0.1,
+            delayChildren: custom.reduced ? 0 : 0.08,
         },
     }),
 };
@@ -86,7 +80,7 @@ export default function Services() {
     return (
         <motion.section
             id="coaching"
-            className="py-16"
+            className="py-20"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.25 }}
@@ -94,16 +88,11 @@ export default function Services() {
             custom={{ delayBase: 0, reduced: reduce }}
         >
             <div className="mx-auto max-w-6xl px-4">
-                <motion.header
-                    className="max-w-2xl"
-                    variants={sectionVariants}
-                    custom={{ delayBase: 0.05, reduced: reduce }}
-                >
-                    <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight">Coaching Options</h2>
-                    <p className="mt-2 text-slate-600">
-                        Pick what fits your schedule and budget. No contracts - cancel anytime.
-                    </p>
-                </motion.header>
+                <SectionHeader
+                    eyebrow="Coaching"
+                    title="Coaching options that match how you actually live"
+                    description="Whether you want in-person sessions or a more flexible coaching setup, the aim is simple: clear structure, practical support, and steady progress."
+                />
 
                 <motion.div
                     className="mt-10 grid gap-6 md:grid-cols-3"
@@ -117,64 +106,48 @@ export default function Services() {
                             key={card.slug}
                             variants={cardVariants}
                             custom={{ reduced: reduce }}
-                            whileHover={reduce ? {} : { y: -4 }}
-                            whileFocus={reduce ? {} : { y: -2 }}
-                            tabIndex={0}
-                            className="group relative rounded-2xl border bg-white p-6 shadow-sm transition hover:shadow-md focus:shadow-md hover:border-[#C62828]/60 focus:border-[#C62828]/60 outline-none"
+                            className="flex h-full flex-col rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-sm"
                             role="listitem"
                             aria-labelledby={`${card.slug}-title`}
                         >
-                            <div
-                                className="pointer-events-none absolute -inset-px rounded-2xl bg-[radial-gradient(120px_80px_at_100%_0%,rgba(198,40,40,0.08),transparent)]"
-                                aria-hidden="true"
-                            />
-
-                            <h3 id={`${card.slug}-title`} className="font-semibold text-xl">
-                                {card.title}
-                            </h3>
+                            <div className="flex items-start justify-between gap-3">
+                                <h3 id={`${card.slug}-title`} className="text-xl font-semibold text-slate-900">
+                                    {card.title}
+                                </h3>
+                                {card.status && (
+                                    <span className="rounded-full bg-[#C62828]/10 px-2.5 py-1 text-xs font-semibold uppercase tracking-[0.15em] text-[#C62828]">
+                                        {card.status}
+                                    </span>
+                                )}
+                            </div>
 
                             {card.price && (
-                                <motion.div
-                                    className="mt-2 text-[15px] font-extrabold text-slate-900"
-                                    initial={{ opacity: 0 }}
-                                    whileInView={{ opacity: 1 }}
-                                    viewport={{ once: true }}
-                                    transition={{ duration: reduce ? 0 : 0.4, delay: reduce ? 0 : 0.1, ease: EASE_OUT }}
-                                >
+                                <div className="mt-4 text-sm font-semibold uppercase tracking-[0.15em] text-slate-500">
                                     {card.price}
-                                </motion.div>
+                                </div>
                             )}
 
-                            <p className="mt-2 text-sm text-slate-600">{card.summary}</p>
+                            <p className="mt-4 text-sm leading-6 text-slate-600">{card.summary}</p>
 
-                            <ul className="mt-4 space-y-2" role="list">
+                            <ul className="mt-5 space-y-3" role="list">
                                 {card.bullets.map((bullet) => (
-                                    <Bullet key={bullet} text={bullet} />
+                                    <li key={bullet} className="flex gap-2 text-sm text-slate-700">
+                                        <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-[#C62828]" aria-hidden="true" />
+                                        <span>{bullet}</span>
+                                    </li>
                                 ))}
                             </ul>
 
-                            <div className="mt-5 flex items-center gap-3">
-                                <a
+                            <div className="mt-6 pt-2">
+                                <PrimaryButton
+                                    as="a"
                                     href="#book"
-                                    className="text-[#C62828] font-semibold underline-offset-4 hover:underline focus:underline focus:outline-none"
+                                    variant={card.status ? "secondary" : "primary"}
+                                    className="w-full"
                                 >
-                                    Learn more
-                                </a>
-                                <span className="text-slate-300">|</span>
-                                <a
-                                    href="#book"
-                                    className="text-sm text-slate-600 underline-offset-4 hover:underline focus:underline focus:outline-none"
-                                >
-                                    Book now
-                                </a>
+                                    {card.status ? "Join the waitlist" : "Book a consultation"}
+                                </PrimaryButton>
                             </div>
-
-                            <a
-                                href="#book"
-                                aria-hidden="true"
-                                tabIndex={-1}
-                                className="absolute inset-0 rounded-2xl ring-offset-2 focus:outline-none focus:ring-2 focus:ring-[#C62828]/60"
-                            />
                         </motion.article>
                     ))}
                 </motion.div>
