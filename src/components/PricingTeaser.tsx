@@ -1,13 +1,9 @@
-// src/components/home/PricingTeaser.tsx
-import { motion, useReducedMotion } from "framer-motion";
-import type { Variants, Transition } from "framer-motion";
+import { motion, useReducedMotion, type Transition, type Variants } from "framer-motion";
 import { Check, Crown } from "lucide-react";
 import PrimaryButton from "../components/ui/PrimaryButton";
 
-/** ---------- Easing ---------- */
 const EASE_OUT: Transition["ease"] = [0.16, 1, 0.3, 1];
 
-/** ---------- Types & Data ---------- */
 type Tier = {
     slug: string;
     name: string;
@@ -21,13 +17,13 @@ const TIERS: Tier[] = [
     {
         slug: "one-to-one-pt",
         name: "1:1 PT",
-        price: "from £40/session",
+        price: "from GBP 40/session",
         points: ["Package discounts", "City centre gym", "Nutrition support"],
     },
     {
         slug: "online-coaching",
         name: "Online Coaching",
-        price: "£119/month",
+        price: "GBP 119/month",
         points: ["Weekly check-ins", "Custom plan", "Form feedback"],
         highlight: true,
         footnote: "Most popular for busy professionals",
@@ -35,42 +31,40 @@ const TIERS: Tier[] = [
     {
         slug: "small-group",
         name: "Small Group",
-        price: "£25/person",
-        points: ["2–4 people", "Fixed slots", "Great atmosphere"],
+        price: "GBP 25/person",
+        points: ["2-4 people", "Fixed slots", "Great atmosphere"],
     },
 ];
 
-/** ---------- Variants ---------- */
 const sectionVariants: Variants = {
     hidden: { opacity: 0, y: 12 },
-    visible: (c: { reduced: boolean }) => ({
+    visible: (custom: { reduced: boolean }) => ({
         opacity: 1,
         y: 0,
-        transition: { duration: c.reduced ? 0 : 0.5, ease: EASE_OUT },
+        transition: { duration: custom.reduced ? 0 : 0.5, ease: EASE_OUT },
     }),
 };
 
 const listVariants: Variants = {
     hidden: {},
-    visible: (c: { reduced: boolean }) => ({
+    visible: (custom: { reduced: boolean }) => ({
         transition: {
-            staggerChildren: c.reduced ? 0 : 0.12,
-            delayChildren: c.reduced ? 0 : 0.05,
+            staggerChildren: custom.reduced ? 0 : 0.12,
+            delayChildren: custom.reduced ? 0 : 0.05,
         },
     }),
 };
 
 const cardVariants: Variants = {
     hidden: { opacity: 0, y: 18, scale: 0.98 },
-    visible: (c: { reduced: boolean }) => ({
+    visible: (custom: { reduced: boolean }) => ({
         opacity: 1,
         y: 0,
         scale: 1,
-        transition: { duration: c.reduced ? 0 : 0.45, ease: EASE_OUT },
+        transition: { duration: custom.reduced ? 0 : 0.45, ease: EASE_OUT },
     }),
 };
 
-/** ---------- Bits ---------- */
 function Bullet({ text }: { text: string }) {
     return (
         <li className="flex items-start gap-2 text-sm text-slate-700">
@@ -89,7 +83,6 @@ function Badge() {
     );
 }
 
-/** ---------- Component ---------- */
 export default function PricingTeaser() {
     const reduce = useReducedMotion();
 
@@ -122,9 +115,9 @@ export default function PricingTeaser() {
                     variants={listVariants}
                     custom={{ reduced: !!reduce }}
                 >
-                    {TIERS.map((t) => (
+                    {TIERS.map((tier) => (
                         <motion.article
-                            key={t.slug}
+                            key={tier.slug}
                             variants={cardVariants}
                             custom={{ reduced: !!reduce }}
                             whileHover={reduce ? {} : { y: -4 }}
@@ -133,34 +126,33 @@ export default function PricingTeaser() {
                             className={[
                                 "group relative rounded-2xl border bg-white p-6 shadow-sm transition",
                                 "hover:shadow-md focus:shadow-md outline-none",
-                                t.highlight
+                                tier.highlight
                                     ? "border-[#C62828]/50 ring-1 ring-[#C62828]/20"
                                     : "hover:border-[#C62828]/60 focus:border-[#C62828]/60",
                             ].join(" ")}
                             role="listitem"
-                            aria-labelledby={`${t.slug}-title`}
+                            aria-labelledby={`${tier.slug}-title`}
                         >
-                            {/* subtle accent */}
                             <div
                                 className="pointer-events-none absolute -inset-px rounded-2xl bg-[radial-gradient(140px_100px_at_100%_0%,rgba(198,40,40,0.08),transparent)]"
                                 aria-hidden
                             />
 
                             <div className="flex items-start justify-between gap-3">
-                                <h3 id={`${t.slug}-title`} className="font-semibold text-xl">
-                                    {t.name}
+                                <h3 id={`${tier.slug}-title`} className="font-semibold text-xl">
+                                    {tier.name}
                                 </h3>
-                                {t.highlight && <Badge />}
+                                {tier.highlight && <Badge />}
                             </div>
 
-                            <div className="mt-2 text-2xl font-extrabold">{t.price}</div>
-                            {t.footnote && (
-                                <div className="mt-1 text-xs text-slate-500">{t.footnote}</div>
+                            <div className="mt-2 text-2xl font-extrabold">{tier.price}</div>
+                            {tier.footnote && (
+                                <div className="mt-1 text-xs text-slate-500">{tier.footnote}</div>
                             )}
 
                             <ul className="mt-4 space-y-2" role="list">
-                                {t.points.map((p) => (
-                                    <Bullet key={p} text={p} />
+                                {tier.points.map((point) => (
+                                    <Bullet key={point} text={point} />
                                 ))}
                             </ul>
 
@@ -168,21 +160,20 @@ export default function PricingTeaser() {
                                 <a
                                     href="#book"
                                     className="text-[#C62828] font-semibold underline-offset-4 hover:underline focus:underline focus:outline-none"
-                                    aria-label={`View details for ${t.name}`}
+                                    aria-label={`View details for ${tier.name}`}
                                 >
-                                    View details →
+                                    View details
                                 </a>
-                                <span className="text-slate-300">•</span>
+                                <span className="text-slate-300">|</span>
                                 <a
                                     href="#book"
                                     className="text-sm text-slate-600 underline-offset-4 hover:underline focus:underline focus:outline-none"
-                                    aria-label={`Book ${t.name}`}
+                                    aria-label={`Book ${tier.name}`}
                                 >
                                     Book now
                                 </a>
                             </div>
 
-                            {/* pointer-only overlay to make whole card clickable without stealing keyboard focus */}
                             <a
                                 href="#book"
                                 aria-hidden

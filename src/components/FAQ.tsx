@@ -1,37 +1,33 @@
-// src/components/home/FAQ.tsx
-import { useState, useId } from "react";
-import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
-import type { Transition } from "framer-motion";
-import { Plus, Minus } from "lucide-react";
+import { useId, useState } from "react";
+import { AnimatePresence, motion, useReducedMotion, type Transition } from "framer-motion";
+import { Minus, Plus } from "lucide-react";
 
-/** ---------- Easing ---------- */
 const EASE_OUT: Transition["ease"] = [0.16, 1, 0.3, 1];
 
-/** ---------- Data ---------- */
 type QA = { q: string; a: string };
+
 const QAS: QA[] = [
     { q: "Where do sessions happen?", a: "Fallowfield Gym + mobile/home visits." },
-    { q: "Do I need experience?", a: "No—plans are tailored to your current level." },
+    { q: "Do I need experience?", a: "No - plans are tailored to your current level." },
     { q: "Is nutrition included?", a: "Yes, simple habit-based nutrition with weekly check-ins." },
-    { q: "What if I’m busy?", a: "We build around your schedule so it’s sustainable." },
+    { q: "What if I'm busy?", a: "We build around your schedule so it's sustainable." },
 ];
 
-/** ---------- Component ---------- */
 export default function FAQ() {
     const [openIndex, setOpenIndex] = useState<number | null>(0);
     const reduce = useReducedMotion();
     const sectionId = useId();
 
     const toggle = (idx: number) =>
-        setOpenIndex((cur) => (cur === idx ? null : idx));
+        setOpenIndex((current) => (current === idx ? null : idx));
 
     const jsonLd = {
         "@context": "https://schema.org",
         "@type": "FAQPage",
-        "mainEntity": QAS.map(({ q, a }) => ({
+        mainEntity: QAS.map(({ q, a }) => ({
             "@type": "Question",
-            "name": q,
-            "acceptedAnswer": { "@type": "Answer", "text": a },
+            name: q,
+            acceptedAnswer: { "@type": "Answer", text: a },
         })),
     };
 
@@ -46,15 +42,15 @@ export default function FAQ() {
                 </h2>
 
                 <div className="mt-6 divide-y rounded-2xl border bg-white">
-                    {QAS.map(({ q, a }, i) => {
-                        const open = openIndex === i;
+                    {QAS.map(({ q, a }, index) => {
+                        const open = openIndex === index;
                         return (
                             <div key={q} className="p-0">
                                 <button
                                     type="button"
-                                    onClick={() => toggle(i)}
+                                    onClick={() => toggle(index)}
                                     aria-expanded={open}
-                                    aria-controls={`${sectionId}-panel-${i}`}
+                                    aria-controls={`${sectionId}-panel-${index}`}
                                     className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C62828]/50"
                                 >
                                     <span className="font-semibold">{q}</span>
@@ -76,7 +72,7 @@ export default function FAQ() {
                                 <AnimatePresence initial={false}>
                                     {open && (
                                         <motion.div
-                                            id={`${sectionId}-panel-${i}`}
+                                            id={`${sectionId}-panel-${index}`}
                                             key="content"
                                             initial={{ height: 0, opacity: 0 }}
                                             animate={{
@@ -103,13 +99,12 @@ export default function FAQ() {
                                         </motion.div>
                                     )}
                                 </AnimatePresence>
-                                {i < QAS.length - 1 && <div className="mx-6 h-px bg-slate-200" />}
+                                {index < QAS.length - 1 && <div className="mx-6 h-px bg-slate-200" />}
                             </div>
                         );
                     })}
                 </div>
 
-                {/* Optional CTA under FAQ */}
                 <div className="mt-8 text-sm text-slate-600">
                     Still got questions?{" "}
                     <a
@@ -121,9 +116,9 @@ export default function FAQ() {
                 </div>
             </div>
 
-            {/* SEO: FAQPage structured data */}
             <script
-                type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
             />
         </section>
     );

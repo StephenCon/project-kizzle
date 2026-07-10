@@ -1,11 +1,8 @@
-// src/components/home/Services.tsx
 import { Check } from "lucide-react";
-import { motion, useReducedMotion, type Variants, type Transition } from "framer-motion";
+import { motion, useReducedMotion, type Transition, type Variants } from "framer-motion";
 
-/** ---------- Easing ---------- */
 const EASE_OUT: Transition["ease"] = [0.16, 1, 0.3, 1];
 
-/** ---------- Types ---------- */
 type Service = {
     slug: string;
     title: string;
@@ -14,32 +11,30 @@ type Service = {
     price?: string;
 };
 
-/** ---------- Data ---------- */
 const SERVICES: Service[] = [
     {
         slug: "one-to-one-pt",
         title: "1:1 Personal Training",
         summary: "Hands-on coaching in Manchester with a plan built for you.",
         bullets: ["Tailored sessions", "Manchester", "Nutrition support"],
-        price: "from £25/session",
+        price: "from GBP 25/session",
     },
     {
         slug: "online-coaching",
         title: "Online Coaching",
-        summary: "App-based programming, check-ins, and form feedback—train anywhere.",
+        summary: "App-based programming, check-ins, and form feedback - train anywhere.",
         bullets: ["App-based training", "Weekly check-ins", "Form feedback"],
         price: "COMING SOON",
     },
     {
         slug: "small-group",
         title: "Small Group",
-        summary: "Train with friends (2–4 people). Same quality, lower cost.",
-        bullets: ["2–4 people", "Lower cost", "Fixed time slots"],
+        summary: "Train with friends (2-4 people). Same quality, lower cost.",
+        bullets: ["2-4 people", "Lower cost", "Fixed time slots"],
         price: "COMING SOON",
     },
 ];
 
-/** ---------- Small Presentational Bits ---------- */
 function Bullet({ text }: { text: string }) {
     return (
         <li className="flex gap-2 text-sm text-slate-700">
@@ -49,7 +44,6 @@ function Bullet({ text }: { text: string }) {
     );
 }
 
-/** ---------- Animation Variants ---------- */
 const sectionVariants: Variants = {
     hidden: { opacity: 0, y: 10 },
     visible: (custom: { delayBase: number; reduced: boolean }) => ({
@@ -86,7 +80,6 @@ const cardVariants: Variants = {
     }),
 };
 
-/** ---------- Component ---------- */
 export default function Services() {
     const reduce = useReducedMotion();
 
@@ -108,7 +101,7 @@ export default function Services() {
                 >
                     <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight">Coaching Options</h2>
                     <p className="mt-2 text-slate-600">
-                        Pick what fits your schedule and budget. No contracts—cancel anytime.
+                        Pick what fits your schedule and budget. No contracts - cancel anytime.
                     </p>
                 </motion.header>
 
@@ -131,7 +124,6 @@ export default function Services() {
                             role="listitem"
                             aria-labelledby={`${card.slug}-title`}
                         >
-                            {/* subtle corner accent */}
                             <div
                                 className="pointer-events-none absolute -inset-px rounded-2xl bg-[radial-gradient(120px_80px_at_100%_0%,rgba(198,40,40,0.08),transparent)]"
                                 aria-hidden="true"
@@ -156,8 +148,8 @@ export default function Services() {
                             <p className="mt-2 text-sm text-slate-600">{card.summary}</p>
 
                             <ul className="mt-4 space-y-2" role="list">
-                                {card.bullets.map((b) => (
-                                    <Bullet key={b} text={b} />
+                                {card.bullets.map((bullet) => (
+                                    <Bullet key={bullet} text={bullet} />
                                 ))}
                             </ul>
 
@@ -166,9 +158,9 @@ export default function Services() {
                                     href="#book"
                                     className="text-[#C62828] font-semibold underline-offset-4 hover:underline focus:underline focus:outline-none"
                                 >
-                                    Learn more →
+                                    Learn more
                                 </a>
-                                <span className="text-slate-300">•</span>
+                                <span className="text-slate-300">|</span>
                                 <a
                                     href="#book"
                                     className="text-sm text-slate-600 underline-offset-4 hover:underline focus:underline focus:outline-none"
@@ -177,7 +169,6 @@ export default function Services() {
                                 </a>
                             </div>
 
-                            {/* whole-card clickable overlay */}
                             <a
                                 href="#book"
                                 aria-hidden="true"

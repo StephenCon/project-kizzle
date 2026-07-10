@@ -1,27 +1,23 @@
-// src/components/home/Footer.tsx
-import { motion, useReducedMotion } from "framer-motion";
-import type { Variants, Transition } from "framer-motion";
-import { MapPin, Mail } from "lucide-react";
+import { motion, useReducedMotion, type Transition, type Variants } from "framer-motion";
+import { Mail, MapPin } from "lucide-react";
 
-/** ---------- Easing ---------- */
 const EASE_OUT: Transition["ease"] = [0.16, 1, 0.3, 1];
 
-/** ---------- Variants ---------- */
 const containerVariants: Variants = {
     hidden: {},
-    visible: (c: { reduced: boolean }) => ({
+    visible: (custom: { reduced: boolean }) => ({
         transition: {
-            staggerChildren: c.reduced ? 0 : 0.08,
+            staggerChildren: custom.reduced ? 0 : 0.08,
         },
     }),
 };
 
 const itemVariants: Variants = {
     hidden: { opacity: 0, y: 12 },
-    visible: (c: { reduced: boolean }) => ({
+    visible: (custom: { reduced: boolean }) => ({
         opacity: 1,
         y: 0,
-        transition: { duration: c.reduced ? 0 : 0.4, ease: EASE_OUT },
+        transition: { duration: custom.reduced ? 0 : 0.4, ease: EASE_OUT },
     }),
 };
 
@@ -38,7 +34,6 @@ export default function Footer() {
             custom={{ reduced: !!reduce }}
         >
             <div className="mx-auto max-w-6xl px-4 py-12 grid gap-10 md:grid-cols-3">
-                {/* Logo + tagline */}
                 <motion.div variants={itemVariants} custom={{ reduced: !!reduce }}>
                     <div className="flex items-center gap-2 font-bold text-lg">
                         <span className="h-8 w-8 rounded-md bg-[#C62828]" />
@@ -49,7 +44,6 @@ export default function Footer() {
                     </p>
                 </motion.div>
 
-                {/* Quick links */}
                 <motion.div variants={itemVariants} custom={{ reduced: !!reduce }}>
                     <h4 className="font-semibold mb-3">Quick Links</h4>
                     <ul className="space-y-2 text-sm">
@@ -76,7 +70,6 @@ export default function Footer() {
                     </ul>
                 </motion.div>
 
-                {/* Contact */}
                 <motion.div variants={itemVariants} custom={{ reduced: !!reduce }}>
                     <h4 className="font-semibold mb-3">Contact</h4>
                     <ul className="space-y-2 text-sm">
@@ -102,7 +95,7 @@ export default function Footer() {
                 variants={itemVariants}
                 custom={{ reduced: !!reduce }}
             >
-                © {new Date().getFullYear()} Project Kizzle — Manchester
+                (c) {new Date().getFullYear()} Project Kizzle - Manchester
             </motion.div>
         </motion.footer>
     );

@@ -1,27 +1,24 @@
-// src/components/home/FinalCTA.tsx
-import { motion, useReducedMotion, type Variants, type Transition } from "framer-motion";
-import { MessageCircle, Mail } from "lucide-react";
+import { motion, useReducedMotion, type Transition, type Variants } from "framer-motion";
+import { Mail, MessageCircle } from "lucide-react";
 
-/** ---------- Easing ---------- */
 const EASE_OUT: Transition["ease"] = [0.16, 1, 0.3, 1];
 
-/** ---------- Variants ---------- */
 const sectionVariants: Variants = {
     hidden: { opacity: 0, y: 12 },
-    visible: (c: { reduced: boolean }) => ({
+    visible: (custom: { reduced: boolean }) => ({
         opacity: 1,
         y: 0,
-        transition: { duration: c.reduced ? 0 : 0.5, ease: EASE_OUT },
+        transition: { duration: custom.reduced ? 0 : 0.5, ease: EASE_OUT },
     }),
 };
 
 const cardVariants: Variants = {
     hidden: { opacity: 0, y: 16, scale: 0.98 },
-    visible: (c: { reduced: boolean }) => ({
+    visible: (custom: { reduced: boolean }) => ({
         opacity: 1,
         y: 0,
         scale: 1,
-        transition: { duration: c.reduced ? 0 : 0.45, ease: EASE_OUT },
+        transition: { duration: custom.reduced ? 0 : 0.45, ease: EASE_OUT },
     }),
 };
 
@@ -30,7 +27,7 @@ export default function FinalCTA() {
 
     return (
         <motion.section
-            id="contact"
+            id="book"
             className="py-16 bg-slate-50"
             initial="hidden"
             whileInView="visible"
@@ -38,8 +35,8 @@ export default function FinalCTA() {
             variants={sectionVariants}
             custom={{ reduced: !!reduce }}
         >
+            <div id="contact" aria-hidden="true" className="relative -top-24" />
             <div className="mx-auto max-w-6xl px-4 grid gap-8 md:grid-cols-2">
-                {/* Left: Copy + actions */}
                 <motion.div
                     variants={cardVariants}
                     custom={{ reduced: !!reduce }}
@@ -49,7 +46,7 @@ export default function FinalCTA() {
                         Ready to get started?
                     </h2>
                     <p className="mt-2 text-slate-700">
-                        Book a free 15–20 minute consult. No pressure, no salesy stuff—just a plan.
+                        Book a free 15-20 minute consult. No pressure, no salesy stuff - just a plan.
                     </p>
 
                     <div className="mt-6 flex flex-wrap items-center gap-3">
@@ -65,7 +62,7 @@ export default function FinalCTA() {
                         </a>
                     </div>
 
-                    <div className="mt-4 text-sm text-slate-600 flex items-center gap-2">
+                    <div className="mt-4 flex items-center gap-2 text-sm text-slate-600">
                         <Mail className="h-4 w-4 text-slate-500" aria-hidden="true" />
                         Prefer email?{" "}
                         <a
@@ -77,7 +74,6 @@ export default function FinalCTA() {
                     </div>
                 </motion.div>
 
-                {/* Right column left empty intentionally (layout balance / future content) */}
                 <div aria-hidden className="hidden md:block" />
             </div>
         </motion.section>
