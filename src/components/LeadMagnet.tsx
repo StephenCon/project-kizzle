@@ -116,7 +116,7 @@ export default function LeadMagnet() {
 
                     <div className="mt-5 border-t border-slate-200 pt-5">
                         <a
-                            href="https://wa.me/447704505381?text=Hi%20Kyle%2C%20I%27d%20like%20the%20free%207-day%20kickstart%20pack."
+                            href="https://wa.me/447770264347?text=Hi%20Kyle%2C%20I%27d%20like%20the%20free%207-day%20kickstart%20pack."
                             target="_blank"
                             rel="noreferrer"
                             className="inline-flex items-center gap-2 text-sm font-medium text-[#C62828] underline-offset-4 hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C62828]/30"

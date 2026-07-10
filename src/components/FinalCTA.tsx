@@ -54,7 +54,7 @@ export default function FinalCTA() {
                             <div className="mt-8 flex flex-wrap gap-3">
                                 <PrimaryButton
                                     as="a"
-                                    href="https://wa.me/447704505381?text=Hi%20Kyle%2C%20I%27d%20like%20to%20book%20a%20consultation."
+                                    href="https://wa.me/447770264347?text=Hi%20Kyle%2C%20I%27d%20like%20to%20book%20a%20consultation."
                                 >
                                     <MessageCircle className="mr-2 h-5 w-5" aria-hidden="true" />
                                     WhatsApp
@@ -95,7 +95,7 @@ export default function FinalCTA() {
                                     </a>
                                     <a
                                         className="block font-medium text-[#C62828] underline-offset-4 hover:underline"
-                                        href="https://wa.me/447704505381"
+                                        href="https://wa.me/447770264347"
                                         target="_blank"
                                         rel="noreferrer"
                                     >

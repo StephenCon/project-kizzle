@@ -77,7 +77,7 @@ export default function Hero() {
                                     </div>
                                 </div>
                                 <a
-                                    href="https://wa.me/447704505381"
+                                    href="https://wa.me/447770264347"
                                     target="_blank"
                                     rel="noreferrer"
                                     className="inline-flex items-center gap-2 text-sm font-semibold text-white underline-offset-4 transition hover:text-[#ffd5d5] hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
